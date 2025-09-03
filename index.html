@@ -852,6 +852,7 @@
             align-items: center;
             gap: 1rem;
             margin-top: 2rem;
+            padding: 0 1rem; /* Add padding to prevent button cutoff */
         }
         
         .cert-nav-btn {
@@ -861,7 +862,7 @@
             border-radius: 50%;
             width: 45px;
             height: 45px;
-            display: flex;
+            display: flex !important; /* Force visibility */
             align-items: center;
             justify-content: center;
             cursor: pointer;
@@ -870,6 +871,9 @@
             font-weight: 600;
             backdrop-filter: blur(10px);
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            flex-shrink: 0; /* Prevent shrinking that causes cutoff */
+            min-width: 45px; /* Ensure minimum width */
+            min-height: 45px; /* Ensure minimum height */
         }
         
         .cert-nav-btn:hover {
@@ -939,6 +943,8 @@
                 width: 40px;
                 height: 40px;
                 font-size: 1rem;
+                min-width: 40px; /* Prevent mobile cutoff */
+                min-height: 40px;
             }
             
             .cert-indicator {
@@ -949,6 +955,7 @@
             .certification-controls {
                 gap: 0.8rem;
                 margin-top: 1.5rem;
+                padding: 0 1.5rem; /* Extra padding on mobile */
             }
         }
         
@@ -971,6 +978,8 @@
                 width: 35px;
                 height: 35px;
                 font-size: 0.9rem;
+                min-width: 35px; /* Prevent cutoff on smallest screens */
+                min-height: 35px;
             }
         }
         
@@ -3581,8 +3590,15 @@
             }
             
             // Auto-slide every 8 seconds
-            startCertAutoSlide();
+            setInterval(() => {
+                moveCertSlide(1);
+            }, 8000);
         }
+        
+        // Initialize certification slider when DOM is ready
+        document.addEventListener('DOMContentLoaded', function() {
+            initCertificationSlider();
+        });
         
         // Contact Form JavaScript
         document.addEventListener('DOMContentLoaded', function() {
