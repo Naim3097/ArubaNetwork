@@ -817,6 +817,8 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            min-height: 280px; /* Force consistent card height */
+            justify-content: space-between; /* Distribute content evenly */
         }
         
         .certification-badge:hover {
@@ -844,6 +846,22 @@
             background: #f8f9fa;
             padding: 10px;
             display: block; /* Ensure consistent display */
+            flex-shrink: 0; /* Prevent image from shrinking */
+        }
+        
+        /* Ensure consistent text spacing in cards */
+        .certification-badge h4 {
+            margin-bottom: 0.5rem;
+            flex-shrink: 0;
+            min-height: 2.5rem; /* Consistent title height */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .certification-badge .text-small {
+            margin-top: auto; /* Push to bottom */
+            flex-shrink: 0;
         }
         
         .certification-controls {
@@ -932,6 +950,7 @@
                 padding: 1.5rem 1rem;
                 margin: 0 auto;
                 max-width: 300px;
+                min-height: 250px; /* Consistent mobile card height */
             }
             
             .badge-image {
@@ -967,6 +986,7 @@
             
             .certification-badge {
                 padding: 1rem 0.8rem;
+                min-height: 220px; /* Consistent small mobile card height */
             }
             
             .badge-image {
