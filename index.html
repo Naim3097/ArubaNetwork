@@ -575,9 +575,9 @@
         
         /* Additional Mobile Override */
         @media (max-width: 480px) {
-            /* Hero 1: Fix awkward image positioning - move image much lower */
+            /* Hero 1: Move image even further down (50% more) */
             .hero-slider .hero-slide-1 {
-                background-position: center 95% !important;
+                background-position: center 120% !important;
             }
             
             .hero-content {
@@ -607,6 +607,12 @@
                 max-width: 108px; /* 50% larger than previous 72px */
                 max-height: 108px;
                 opacity: 0.9;
+            }
+            
+            /* Hero 2: Badge 10% larger than other heroes */
+            .hero-slide-2 .hero-badge {
+                max-width: 119px; /* 10% larger than 108px */
+                max-height: 119px;
             }
             
             /* Hide navigation arrows on mobile */
