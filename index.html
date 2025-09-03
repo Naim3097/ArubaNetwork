@@ -836,13 +836,14 @@
         }
         
         .badge-image {
-            width: 120px;
-            height: 120px;
+            width: 120px !important;
+            height: 120px !important;
             object-fit: contain;
             margin-bottom: 1.5rem;
             border-radius: 8px;
             background: #f8f9fa;
             padding: 10px;
+            display: block; /* Ensure consistent display */
         }
         
         .certification-controls {
@@ -880,12 +881,13 @@
         }
         
         .cert-nav-btn:disabled {
-            background: rgba(255, 255, 255, 0.5);
-            color: var(--color-gray-400);
-            border-color: rgba(var(--color-gray-400-rgb), 0.3);
-            cursor: not-allowed;
+            background: rgba(255, 255, 255, 0.7) !important;
+            color: var(--color-primary) !important;
+            border-color: rgba(var(--color-primary-rgb), 0.3) !important;
+            cursor: pointer !important; /* Keep clickable */
             transform: none;
-            box-shadow: none;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            opacity: 1 !important; /* Ensure visibility */
         }
         
         .cert-indicators {
@@ -929,8 +931,8 @@
             }
             
             .badge-image {
-                width: 90px;
-                height: 90px;
+                width: 120px !important; /* Force consistent size on mobile too */
+                height: 120px !important;
             }
             
             .cert-nav-btn {
@@ -3526,9 +3528,17 @@
                     indicator.classList.toggle('active', i === index);
                 });
                 
-                // Keep buttons enabled for circular navigation
-                if (certPrevBtn) certPrevBtn.disabled = false;
-                if (certNextBtn) certNextBtn.disabled = false;
+                // Keep buttons always enabled for circular navigation
+                const certPrevBtn = document.getElementById('cert-prev');
+                const certNextBtn = document.getElementById('cert-next');
+                if (certPrevBtn) {
+                    certPrevBtn.disabled = false;
+                    certPrevBtn.style.display = 'flex'; /* Ensure visibility */
+                }
+                if (certNextBtn) {
+                    certNextBtn.disabled = false;
+                    certNextBtn.style.display = 'flex'; /* Ensure visibility */
+                }
             }
             
             // Navigation functions (global scope)
