@@ -963,8 +963,8 @@
             }
             
             .badge-image {
-                width: 80px;
-                height: 80px;
+                width: 120px !important; /* Keep consistent size even on smallest screens */
+                height: 120px !important;
             }
             
             .cert-nav-btn {
@@ -3583,40 +3583,6 @@
             // Auto-slide every 8 seconds
             startCertAutoSlide();
         }
-        
-        // Simple certification slider initialization
-        document.addEventListener('DOMContentLoaded', function() {
-            let currentCertSlide = 0;
-            const totalSlides = 3;
-            
-            function updateSlider() {
-                const certTrack = document.getElementById('cert-track');
-                const certIndicators = document.querySelectorAll('.cert-indicator');
-                
-                if (certTrack) {
-                    certTrack.style.transform = `translateX(-${currentCertSlide * 33.333}%)`;
-                }
-                
-                certIndicators.forEach((indicator, index) => {
-                    indicator.classList.toggle('active', index === currentCertSlide);
-                });
-            }
-            
-            // Global navigation functions
-            window.moveCertSlide = function(direction) {
-                currentCertSlide = (currentCertSlide + direction + totalSlides) % totalSlides;
-                updateSlider();
-            };
-            
-            window.goToCertSlide = function(index) {
-                currentCertSlide = index;
-                updateSlider();
-            };
-            
-            // Initialize and start auto-slide
-            updateSlider();
-            setInterval(() => moveCertSlide(1), 8000);
-        });
         
         // Contact Form JavaScript
         document.addEventListener('DOMContentLoaded', function() {
