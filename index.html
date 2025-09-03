@@ -1,0 +1,3595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ACEiT Asia - Trusted Aruba Networks Solution Partner. Enterprise wireless, switching, and security solutions with expert support and certifications.">
+    <meta name="keywords" content="Aruba Networks, Enterprise WiFi, Network Security, Wireless Solutions, ACEiT Asia, Network Infrastructure">
+    <title>ACEiT Asia - Trusted Aruba Networks Solution Partner</title>
+    
+    <!-- Font Awesome for social media icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Preload critical fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- Critical CSS - Inline for performance -->
+    <style>
+        /* CSS Custom Properties - Design System */
+        :root {
+            /* Colors from Tech Today Global + Aruba Enhancements */
+            --color-white: #ffffff;
+            --color-black: #1a1a1a;
+            --color-gray-100: #f8f9fa;
+            --color-gray-200: #e5e5e5;
+            --color-gray-600: #666666;
+            --color-blue-primary: #0066cc;
+            --color-blue-dark: #003366;
+            --color-blue-accent: #0080ff;
+            --color-blue-light: #4da6ff;
+            --color-green-success: #28a745;
+            
+            /* RGB Color Values for alpha usage */
+            --color-primary-rgb: 0, 102, 204;
+            --color-gray-400-rgb: 173, 181, 189;
+            
+            /* Gradients */
+            --gradient-primary: linear-gradient(135deg, #003366 0%, #0066cc 100%);
+            --gradient-secondary: linear-gradient(135deg, #0066cc 0%, #0080ff 100%);
+            --gradient-hero: linear-gradient(135deg, rgba(0,51,102,0.9) 0%, rgba(0,102,204,0.8) 100%);
+            
+            /* Typography */
+            --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            --font-secondary: 'Source Sans Pro', Arial, sans-serif;
+            
+            /* Font Sizes - Responsive Scale */
+            --text-hero: clamp(2.5rem, 5vw, 3.5rem);
+            --text-section: clamp(2rem, 4vw, 2.5rem);
+            --text-subsection: clamp(1.5rem, 3vw, 1.75rem);
+            --text-card-title: 1.25rem;
+            --text-body-large: 1.125rem;
+            --text-body: 1rem;
+            --text-small: 0.875rem;
+            
+            /* Spacing */
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 1.5rem;
+            --spacing-lg: 2rem;
+            --spacing-xl: 3rem;
+            --spacing-2xl: 4rem;
+            --spacing-3xl: 5rem;
+            
+            /* Layout */
+            --container-max-width: 1200px;
+            --border-radius: 12px;
+            --border-radius-small: 8px;
+            
+            /* Shadows */
+            --shadow-card: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-card-hover: 0 8px 25px rgba(0, 0, 0, 0.15);
+            --shadow-button: 0 2px 4px rgba(0, 0, 0, 0.1);
+            
+            /* Transitions */
+            --transition-fast: 0.2s cubic-bezier(0.4, 0.0, 0.2, 1);
+            --transition-standard: 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+            --transition-slow: 0.6s cubic-bezier(0.4, 0.0, 0.2, 1);
+        }
+        
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+        
+        body {
+            font-family: var(--font-primary);
+            font-size: var(--text-body);
+            line-height: 1.6;
+            color: var(--color-black);
+            background-color: var(--color-white);
+            overflow-x: hidden;
+        }
+        
+        /* Accessibility - Respect reduced motion preference */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+        
+        /* Typography System */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        h1 { font-size: var(--text-hero); font-weight: 700; }
+        h2 { font-size: var(--text-section); }
+        h3 { font-size: var(--text-subsection); }
+        h4 { font-size: var(--text-card-title); }
+        
+        p {
+            margin-bottom: var(--spacing-md);
+            color: var(--color-gray-600);
+        }
+        
+        a {
+            color: var(--color-blue-primary);
+            text-decoration: none;
+            transition: color var(--transition-fast);
+        }
+        
+        a:hover {
+            color: var(--color-blue-dark);
+        }
+        
+        /* Container System */
+        .container {
+            max-width: var(--container-max-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-lg);
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 var(--spacing-md);
+            }
+        }
+        
+        /* Section Spacing */
+        .section {
+            padding: var(--spacing-3xl) 0;
+        }
+        
+        @media (max-width: 768px) {
+            .section {
+                padding: var(--spacing-xl) 0;
+            }
+        }
+        
+        /* Navigation Styles */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(13, 27, 42, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: var(--spacing-md) 0;
+            transition: all var(--transition-standard);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .navbar.scrolled {
+            background: rgba(13, 27, 42, 0.98);
+            backdrop-filter: blur(15px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            border-bottom-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .navbar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--color-blue-dark);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+        
+        .logo-placeholder {
+            width: 40px;
+            height: 40px;
+            background: var(--gradient-primary);
+            border-radius: var(--border-radius-small);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: var(--spacing-lg);
+            margin: 0;
+        }
+        
+        .nav-menu a {
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 500;
+            transition: color var(--transition-fast);
+            position: relative;
+        }
+        
+        .nav-menu a:hover {
+            color: #ffffff;
+        }
+        
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--color-blue-accent);
+            transition: width var(--transition-standard);
+        }
+        
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+        
+        /* Mobile Navigation */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: var(--spacing-lg);
+                box-shadow: var(--shadow-card);
+                border-radius: 0 0 var(--border-radius) var(--border-radius);
+            }
+            
+            .nav-menu.active {
+                display: flex;
+            }
+            
+            .mobile-menu-toggle {
+                display: block;
+            }
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+        }
+        
+        /* Hero Slider */
+        .hero-slider {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+        
+        .hero-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        
+        .hero-slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 1;
+        }
+        
+        .hero-slide.active {
+            opacity: 1;
+        }
+        
+        /* Hero Content */
+        .hero-content {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 2;
+            color: white;
+            padding: 0 4rem;
+            max-width: 60%;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero-header {
+            font-size: 3.2rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #ffffff 0%, #e6f3ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-subheader {
+            font-size: 1.4rem;
+            font-weight: 400;
+            line-height: 1.5;
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 0;
+        }
+        
+        /* Hero Badges */
+        .hero-badge {
+            position: absolute;
+            right: 8rem;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 2;
+            max-width: 300px;
+            max-height: 300px;
+            opacity: 0.9;
+            transition: all 0.3s ease;
+        }
+        
+        .hero-badge img {
+            width: 100%;
+            height: auto;
+            filter: drop-shadow(2px 4px 8px rgba(0, 0, 0, 0.3));
+        }
+        
+        .hero-badge:hover {
+            opacity: 1;
+            transform: translateY(-50%) scale(1.05);
+        }
+        
+        /* Hero Slide Backgrounds */
+        .hero-slide-1 {
+            background-image: url('assets/images/graphics/Hero Section 1 (1).png');
+            background-position: center 0% !important;
+        }
+        
+        .hero-slide-2 {
+            background-image: url('assets/images/graphics/Hero Section 2.png');
+        }
+        
+        .hero-slide-3 {
+            background-image: url('assets/images/graphics/Hero Section 3.png');
+        }
+        
+        /* Hero Navigation */
+        .hero-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 3;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .hero-nav:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: translateY(-50%) scale(1.1);
+        }
+        
+        .hero-nav-prev {
+            left: 30px;
+        }
+        
+        .hero-nav-next {
+            right: 30px;
+        }
+        
+        /* Hero Controls (Dots) */
+        .hero-controls {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 15px;
+            z-index: 3;
+        }
+        
+        .hero-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.4);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .hero-dot.active {
+            background: rgba(255, 255, 255, 0.9);
+            transform: scale(1.3);
+            border-color: rgba(255, 255, 255, 0.6);
+        }
+        
+        .hero-dot:hover {
+            background: rgba(255, 255, 255, 0.7);
+            transform: scale(1.2);
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                min-height: 70vh;
+            }
+            
+            .hero-nav {
+                width: 40px;
+                height: 40px;
+                font-size: 14px;
+            }
+            
+            .hero-nav-prev {
+                left: 15px;
+            }
+            
+            .hero-nav-next {
+                right: 15px;
+            }
+            
+            .hero-controls {
+                bottom: 20px;
+                gap: 10px;
+            }
+            
+            .hero-dot {
+                width: 10px;
+                height: 10px;
+            }
+        }
+        
+        /* Mobile Hero Section 1 Override */
+        @media (max-width: 768px) {
+            .hero-slider .hero-slide-1 {
+                background-position: center 40% !important;
+            }
+            
+            .hero-content {
+                padding: 0 2rem;
+                max-width: 90%;
+                top: 45%;
+            }
+            
+            .hero-header {
+                font-size: 2.2rem;
+                margin-bottom: 1rem;
+                line-height: 1.1;
+            }
+            
+            .hero-subheader {
+                font-size: 1.1rem;
+                line-height: 1.4;
+            }
+            
+            .hero-badge {
+                right: 1.5rem;
+                max-width: 180px;
+                max-height: 180px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero {
+                min-height: 60vh;
+            }
+            
+            .hero-nav {
+                width: 35px;
+                height: 35px;
+                font-size: 12px;
+            }
+            
+            .hero-nav-prev {
+                left: 10px;
+            }
+            
+            .hero-nav-next {
+                right: 10px;
+            }
+            
+            .hero-controls {
+                bottom: 15px;
+                gap: 8px;
+            }
+            
+            .hero-dot {
+                width: 8px;
+                height: 8px;
+            }
+            
+            /* Mobile-specific positioning for Hero Section 1 */
+            .hero-slider .hero-slide-1 {
+                background-position: center 60% !important;
+            }
+        }
+        
+        /* Additional Mobile Override */
+        @media (max-width: 480px) {
+            .hero-slider .hero-slide-1 {
+                background-position: center 70% !important;
+            }
+            
+            .hero-content {
+                padding: 0 1.5rem;
+                max-width: 95%;
+                top: 40%;
+            }
+            
+            .hero-header {
+                font-size: 1.8rem;
+                margin-bottom: 0.75rem;
+                line-height: 1.1;
+            }
+            
+            .hero-subheader {
+                font-size: 1rem;
+                line-height: 1.3;
+            }
+            
+            .hero-badge {
+                right: 1rem;
+                bottom: 1rem;
+                top: auto;
+                transform: none;
+                max-width: 48px;
+                max-height: 48px;
+                opacity: 0.85;
+            }
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+            animation: heroBackgroundFloat 20s ease-in-out infinite;
+            z-index: 2;
+        }
+        
+        @keyframes heroBackgroundFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        /* Button Components */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--spacing-md) var(--spacing-xl);
+            border-radius: var(--border-radius-small);
+            font-weight: 600;
+            text-decoration: none;
+            transition: all var(--transition-standard);
+            cursor: pointer;
+            border: 2px solid transparent;
+            min-height: 48px; /* Accessibility - touch target */
+            font-size: var(--text-body);
+        }
+        
+        .btn-primary {
+            background: var(--gradient-secondary);
+            color: white;
+            box-shadow: var(--shadow-button);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: var(--shadow-card-hover);
+            color: white;
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border-color: white;
+        }
+        
+        .btn-secondary:hover {
+            background: white;
+            color: var(--color-blue-dark);
+            transform: translateY(-2px);
+        }
+        
+        .btn-outline {
+            background: white;
+            color: var(--color-blue-primary);
+            border-color: var(--color-blue-primary);
+        }
+        
+        .btn-outline:hover {
+            background: var(--color-blue-primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        /* Card Components */
+        .card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: var(--spacing-xl);
+            box-shadow: var(--shadow-card);
+            transition: all var(--transition-standard);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-card-hover);
+        }
+        
+        .card-icon {
+            width: 64px;
+            height: 64px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: var(--spacing-lg);
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-align: center;
+            line-height: 1;
+        }
+        
+        .card-title {
+            color: var(--color-black);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .card-description {
+            flex-grow: 1;
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        /* Grid Systems */
+        .grid {
+            display: grid;
+            gap: var(--spacing-xl);
+        }
+        
+        .grid-2 {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+        
+        .grid-3 {
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        }
+        
+        .grid-4 {
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
+        
+        @media (max-width: 768px) {
+            .grid {
+                gap: var(--spacing-lg);
+            }
+            
+            .grid-2,
+            .grid-3,
+            .grid-4 {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Section Styles */
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--spacing-3xl);
+        }
+        
+        .section-title {
+            color: var(--color-black);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .section-subtitle {
+            font-size: var(--text-body-large);
+            color: var(--color-gray-600);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Certification Badge Styles */
+        .certifications {
+            background: linear-gradient(135deg, var(--color-primary-50), var(--color-secondary-50));
+        }
+        
+        .certifications-slider {
+            position: relative;
+            overflow: hidden;
+            margin-top: 2rem;
+        }
+        
+        .certifications-track {
+            display: flex;
+            transition: transform 0.5s ease;
+            width: 300%; /* 3 slides */
+        }
+        
+        .certifications-slide {
+            flex: 0 0 33.333%;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            padding: 0 1rem;
+        }
+        
+        .certification-badge {
+            background: white;
+            padding: 2rem 1.5rem;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .certification-badge:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            border-color: var(--color-primary);
+        }
+        
+        .certification-badge::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+        }
+        
+        .badge-image {
+            width: 120px;
+            height: 120px;
+            object-fit: contain;
+            margin-bottom: 1.5rem;
+            border-radius: 8px;
+            background: #f8f9fa;
+            padding: 10px;
+        }
+        
+        .certification-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .cert-nav-btn {
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--color-primary);
+            border: 2px solid rgba(var(--color-primary-rgb), 0.2);
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+            font-weight: 600;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .cert-nav-btn:hover {
+            background: var(--color-primary);
+            color: white;
+            border-color: var(--color-primary);
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .cert-nav-btn:disabled {
+            background: rgba(255, 255, 255, 0.5);
+            color: var(--color-gray-400);
+            border-color: rgba(var(--color-gray-400-rgb), 0.3);
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        
+        .cert-indicators {
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .cert-indicator {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(var(--color-primary-rgb), 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .cert-indicator:hover {
+            background: rgba(var(--color-primary-rgb), 0.6);
+            transform: scale(1.1);
+        }
+        
+        .cert-indicator.active {
+            background: var(--color-primary);
+            transform: scale(1.2);
+            border-color: rgba(var(--color-primary-rgb), 0.3);
+            box-shadow: 0 0 0 4px rgba(var(--color-primary-rgb), 0.1);
+        }
+        
+        @media (max-width: 768px) {
+            .certifications-slide {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                padding: 0 0.5rem;
+            }
+            
+            .certification-badge {
+                padding: 1.5rem 1rem;
+                margin: 0 auto;
+                max-width: 300px;
+            }
+            
+            .badge-image {
+                width: 90px;
+                height: 90px;
+            }
+            
+            .cert-nav-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+            
+            .cert-indicator {
+                width: 8px;
+                height: 8px;
+            }
+            
+            .certification-controls {
+                gap: 0.8rem;
+                margin-top: 1.5rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .certifications-slide {
+                gap: 1rem;
+                padding: 0 0.25rem;
+            }
+            
+            .certification-badge {
+                padding: 1rem 0.8rem;
+            }
+            
+            .badge-image {
+                width: 80px;
+                height: 80px;
+            }
+            
+            .cert-nav-btn {
+                width: 35px;
+                height: 35px;
+                font-size: 0.9rem;
+            }
+        }
+        
+        /* Business Transformation Section */
+        .transformation-steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .transformation-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid transparent;
+            height: auto;
+            min-height: 380px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .transformation-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            border-color: var(--color-primary);
+        }
+        
+        .transformation-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+        }
+        
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: white;
+            color: var(--color-primary);
+            border: 3px solid var(--color-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 1.5rem;
+            box-shadow: 0 8px 25px rgba(0, 102, 204, 0.3);
+        }
+        
+        .transformation-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        .transformation-content h3 {
+            color: var(--color-primary);
+            margin-bottom: 0;
+            font-size: 1.25rem;
+            font-weight: 600;
+            line-height: 1.4;
+            margin-top: 1rem;
+        }
+        
+        .transformation-content p {
+            color: var(--color-gray-600);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        
+        .transformation-image {
+            width: 100%;
+            max-width: 200px;
+            height: auto;
+            border-radius: 12px;
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            margin: 0 auto 1.5rem auto;
+            display: block;
+        }
+        
+        .transformation-card:hover .transformation-image {
+            transform: scale(1.05);
+        }
+        
+        @media (max-width: 768px) {
+            .transformation-steps {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                margin: 2rem 0;
+            }
+            
+            .transformation-card {
+                padding: 1.5rem 1rem;
+                height: auto;
+                min-height: 320px;
+            }
+            
+            .step-number {
+                width: 50px;
+                height: 50px;
+                font-size: 1.25rem;
+                margin-bottom: 1rem;
+            }
+            
+            .transformation-image {
+                max-width: 180px;
+                height: auto;
+                margin: 0 auto 1rem auto;
+            }
+            
+            .transformation-content h3 {
+                font-size: 1.1rem;
+                margin-top: 0.75rem;
+            }
+            
+            .transformation-content p {
+                font-size: 0.9rem;
+                margin-bottom: 1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .transformation-card {
+                padding: 1rem 0.75rem;
+                height: auto;
+                min-height: 280px;
+            }
+            
+            .step-number {
+                width: 45px;
+                height: 45px;
+                font-size: 1.1rem;
+            }
+            
+            .transformation-image {
+                max-width: 150px;
+                height: auto;
+                margin: 0 auto 0.75rem auto;
+            }
+            
+            .transformation-content h3 {
+                font-size: 1rem;
+                margin-top: 0.5rem;
+            }
+        }
+        
+        /* Solutions for Today's Environment Section */
+        .todays-solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .solution-flip-card {
+            background: transparent;
+            width: 100%;
+            height: 320px;
+            perspective: 1000px;
+        }
+        
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            cursor: pointer;
+        }
+        
+        .solution-flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+        
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            background: white;
+            border-radius: 16px;
+            padding: 1.5rem 1rem;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            border: 2px solid transparent;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .flip-card-back {
+            transform: rotateY(180deg);
+            background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+            color: #1a1a1a;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .flip-card-front:hover {
+            border-color: var(--color-primary);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .feature-icon-clean {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #0066cc, #004499);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem auto;
+            color: white;
+            flex-shrink: 0;
+            font-size: 28px;
+            font-weight: bold;
+            border: 3px solid white;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .flip-card-front h3 {
+            color: var(--color-primary);
+            margin-bottom: 0.75rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+        
+        .flip-card-back h3 {
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        
+        .front-description {
+            color: var(--color-gray-600);
+            font-size: 0.9rem;
+            line-height: 1.4;
+            text-align: center;
+            margin: 0;
+            padding: 0 0.5rem;
+        }
+        
+        .flip-hint {
+            color: var(--color-gray-600);
+            font-size: 0.9rem;
+            font-style: italic;
+            opacity: 0.8;
+        }
+        
+        .feature-list-clean {
+            list-style: none;
+            padding: 0;
+            text-align: center;
+            width: 100%;
+            max-width: 280px;
+            margin: 0 auto;
+        }
+        
+        .feature-list-clean li {
+            color: #2d3748;
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+            line-height: 1.4;
+            font-size: 0.95rem;
+            text-align: left;
+        }
+        
+        .feature-list-clean li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: #2d3748;
+        }
+        
+        /* Mobile Touch Support */
+        @media (hover: none) and (pointer: coarse) {
+            .solution-flip-card {
+                height: auto;
+                min-height: 320px;
+            }
+            
+            .flip-card-inner {
+                transform: rotateY(0deg) !important;
+                position: static;
+                perspective: none;
+            }
+            
+            .flip-card-front, .flip-card-back {
+                position: static;
+                backface-visibility: visible;
+                margin-bottom: 1rem;
+                height: auto;
+                min-height: 280px;
+            }
+            
+            .flip-card-back {
+                transform: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .todays-solutions-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                margin-top: 2rem;
+            }
+            
+            .solution-flip-card {
+                height: 280px;
+            }
+            
+            .flip-card-front, .flip-card-back {
+                padding: 1.25rem 0.75rem;
+            }
+            
+            .feature-icon-clean {
+                width: 60px;
+                height: 60px;
+                margin-bottom: 1rem;
+                font-size: 24px;
+            }
+            
+            .flip-card-front h3, .flip-card-back h3 {
+                font-size: 1.1rem;
+                margin-bottom: 0.5rem;
+            }
+            
+            .front-description {
+                font-size: 0.85rem;
+                padding: 0 0.25rem;
+            }
+            
+            .feature-list-clean li {
+                font-size: 0.9rem;
+                margin-bottom: 0.4rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .solution-flip-card {
+                height: 260px;
+            }
+            
+            .flip-card-front, .flip-card-back {
+                padding: 1rem 0.75rem;
+            }
+            
+            .feature-icon-clean {
+                width: 55px;
+                height: 55px;
+                font-size: 22px;
+            }
+            
+            .flip-card-front h3, .flip-card-back h3 {
+                font-size: 1rem;
+            }
+            
+            .front-description {
+                font-size: 0.8rem;
+                padding: 0;
+            }
+            
+            .feature-list-clean li {
+                font-size: 0.85rem;
+                padding-left: 1.25rem;
+            }
+        }
+        
+        /* Client Logo Styles */
+        .client-logo {
+            height: 80px;
+            background: var(--color-gray-100);
+            border-radius: var(--border-radius-small);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all var(--transition-standard);
+            filter: grayscale(100%);
+            opacity: 0.7;
+        }
+        
+        .client-logo:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+            transform: scale(1.05);
+        }
+        
+        /* Statistics/Numbers */
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--color-blue-accent);
+            display: block;
+            line-height: 1;
+        }
+        
+        .stat-label {
+            font-size: var(--text-small);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--color-gray-600);
+            font-weight: 600;
+        }
+        
+        /* Background Variations */
+        .bg-gray {
+            background-color: var(--color-gray-100);
+        }
+        
+        .bg-gradient {
+            background: var(--gradient-primary);
+            color: white;
+        }
+        
+        .bg-gradient .section-title,
+        .bg-gradient .card-title {
+            color: white;
+        }
+        
+        .bg-gradient .section-subtitle,
+        .bg-gradient .card-description {
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        /* Utility Classes */
+        .text-center { text-align: center; }
+        .text-left { text-align: left; }
+        .text-right { text-align: right; }
+        
+        .mb-0 { margin-bottom: 0; }
+        .mb-sm { margin-bottom: var(--spacing-sm); }
+        .mb-md { margin-bottom: var(--spacing-md); }
+        .mb-lg { margin-bottom: var(--spacing-lg); }
+        .mb-xl { margin-bottom: var(--spacing-xl); }
+        
+        .mt-0 { margin-top: 0; }
+        .mt-sm { margin-top: var(--spacing-sm); }
+        .mt-md { margin-top: var(--spacing-md); }
+        .mt-lg { margin-top: var(--spacing-lg); }
+        .mt-xl { margin-top: var(--spacing-xl); }
+        
+        /* Animation Classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all var(--transition-slow);
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .slide-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all var(--transition-slow);
+        }
+        
+        .slide-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .scale-in {
+            opacity: 0;
+            transform: scale(0.9);
+            transition: all var(--transition-slow);
+        }
+        
+        .scale-in.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+        
+        /* Stagger Animation Delays */
+        .stagger-1 { transition-delay: 0.1s; }
+        .stagger-2 { transition-delay: 0.2s; }
+        .stagger-3 { transition-delay: 0.3s; }
+        .stagger-4 { transition-delay: 0.4s; }
+        
+        /* Loading States */
+        .placeholder {
+            background: linear-gradient(90deg, var(--color-gray-200) 25%, var(--color-gray-100) 50%, var(--color-gray-200) 75%);
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
+            border-radius: var(--border-radius-small);
+        }
+        
+        @keyframes loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+        
+        /* Focus States for Accessibility */
+        .btn:focus,
+        a:focus {
+            outline: 2px solid var(--color-blue-accent);
+            outline-offset: 2px;
+        }
+        
+        /* High Contrast Mode Support */
+        @media (prefers-contrast: high) {
+            :root {
+                --color-gray-600: #000000;
+                --shadow-card: 0 4px 6px rgba(0, 0, 0, 0.3);
+            }
+        }
+        
+        /* End-To-End Network Solutions Section */
+        .end-to-end-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+        
+        .solution-card {
+            background: white;
+            border-radius: 20px;
+            padding: 0;
+            text-align: center;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(0, 102, 204, 0.1);
+            height: 480px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .solution-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.15);
+            border-color: var(--color-primary);
+        }
+        
+        .solution-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+        }
+        
+        .solution-image-container {
+            padding: 2rem 1.5rem;
+            background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+            border-bottom: 1px solid rgba(0, 102, 204, 0.1);
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .solution-image {
+            width: auto;
+            max-width: 160px;
+            height: auto;
+            max-height: 120px;
+            margin: 0 auto;
+            display: block;
+            transition: transform 0.3s ease;
+            object-fit: contain;
+        }
+        
+        .solution-card:hover .solution-image {
+            transform: scale(1.05);
+        }
+        
+        .solution-content {
+            padding: 2.5rem 2rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 290px;
+        }
+        
+        .solution-content h3 {
+            color: var(--color-primary);
+            margin-bottom: 1.25rem;
+            font-size: 1.25rem;
+            font-weight: 600;
+            line-height: 1.4;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 1rem;
+        }
+        
+        .solution-description {
+            color: var(--color-gray-700);
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+            font-size: 0.95rem;
+            flex: 1;
+            display: flex;
+            align-items: flex-start;
+            text-align: left;
+            padding: 0 0.75rem;
+        }
+        
+        .solution-ideal {
+            color: var(--color-gray-600);
+            font-size: 0.85rem;
+            line-height: 1.5;
+            font-style: italic;
+            margin: 0;
+            padding: 1.75rem 1rem 0.75rem;
+            border-top: 1px solid var(--color-gray-200);
+            height: 85px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+        }
+        
+        @media (max-width: 768px) {
+            .end-to-end-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                margin-top: 2rem;
+            }
+            
+            .solution-card {
+                height: 420px;
+            }
+            
+            .solution-image-container {
+                padding: 1.5rem 1rem;
+                height: 180px;
+            }
+            
+            .solution-image {
+                max-width: 140px;
+                max-height: 100px;
+            }
+            
+            .solution-content {
+                padding: 2rem 1.5rem;
+                height: 240px;
+            }
+            
+            .solution-content h3 {
+                font-size: 1.15rem;
+                margin-bottom: 1rem;
+                height: 60px;
+                padding: 0 0.75rem;
+            }
+            
+            .solution-description {
+                font-size: 0.9rem;
+                margin-bottom: 1.25rem;
+                line-height: 1.5;
+                padding: 0 0.5rem;
+            }
+            
+            .solution-ideal {
+                font-size: 0.8rem;
+                height: 75px;
+                padding: 1.5rem 0.75rem 0.5rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .solution-card {
+                height: 380px;
+            }
+            
+            .solution-image-container {
+                padding: 1.25rem 0.75rem;
+                height: 160px;
+            }
+            
+            .solution-image {
+                max-width: 120px;
+                max-height: 90px;
+            }
+            
+            .solution-content {
+                padding: 1.5rem 1rem;
+                height: 220px;
+            }
+            
+            .solution-content h3 {
+                font-size: 1.1rem;
+                margin-bottom: 0.75rem;
+                height: 50px;
+                padding: 0 0.5rem;
+            }
+            
+            .solution-description {
+                font-size: 0.85rem;
+                margin-bottom: 1rem;
+                line-height: 1.4;
+                padding: 0 0.5rem;
+            }
+            
+            .solution-ideal {
+                font-size: 0.75rem;
+                height: 65px;
+                padding: 1.25rem 0.5rem 0.5rem;
+            }
+        }
+        
+        /* Authorized Reseller Section */
+        .authorized-reseller-section {
+            gap: 3rem;
+        }
+        
+        .authorized-reseller-image {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 400px;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(0, 102, 204, 0.1);
+        }
+        
+        .authorized-reseller-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-primary), var(--color-blue-accent));
+        }
+        
+        .reseller-graphic {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            max-height: 350px;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+        
+        .authorized-reseller-image:hover .reseller-graphic {
+            transform: scale(1.02);
+        }
+        
+        .reseller-service-item {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-sm);
+            transition: all 0.3s ease;
+            padding: 0.5rem 0;
+            border-radius: 6px;
+        }
+        
+        .reseller-service-item:hover {
+            background: rgba(0, 102, 204, 0.05);
+            padding-left: 0.5rem;
+            transform: translateX(5px);
+        }
+        
+        .reseller-service-item .check-icon {
+            width: 20px;
+            height: 20px;
+            background: var(--color-blue-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 12px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        
+        /* Contact Form Section */
+        .contact-form-section {
+            padding: var(--spacing-3xl) 0;
+        }
+        
+        .contact-grid {
+            align-items: flex-start;
+            gap: 4rem;
+        }
+        
+        .contact-form {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border-radius: 16px;
+            padding: 2.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: rgba(255, 255, 255, 0.5);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+        }
+        
+        .char-count {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.6);
+            margin-top: 0.5rem;
+            text-align: right;
+        }
+        
+        .form-checkbox {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 2rem;
+        }
+        
+        .form-checkbox input[type="checkbox"] {
+            width: auto;
+            margin: 0;
+            accent-color: var(--color-blue-primary);
+        }
+        
+        .form-checkbox label {
+            margin: 0;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .btn-form {
+            width: 100%;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            background: linear-gradient(135deg, #0066cc, #0052a3);
+            border: none;
+            border-radius: 8px;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 102, 204, 0.3);
+        }
+        
+        .btn-form:hover {
+            background: linear-gradient(135deg, #0052a3, #003d7a);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 102, 204, 0.4);
+        }
+        
+        .contact-info-side {
+            padding: 2rem;
+        }
+        
+        .contact-details {
+            margin-top: 2rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .contact-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateX(5px);
+        }
+        
+        .contact-icon {
+            font-size: 1.5rem;
+            min-width: 30px;
+        }
+        
+        .contact-item h4 {
+            color: white;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+        
+        .contact-item p {
+            color: rgba(255, 255, 255, 0.8);
+            margin: 0;
+            line-height: 1.4;
+        }
+        
+        .contact-item a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .contact-item a:hover {
+            color: #66ccff;
+        }
+        
+        .bg-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0.1;
+            background-image: radial-gradient(circle at 20% 20%, rgba(255,255,255,0.1) 1px, transparent 1px),
+                              radial-gradient(circle at 80% 80%, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: 1;
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr !important;
+                gap: 2rem;
+            }
+            
+            .contact-form {
+                padding: 2rem 1.5rem;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .contact-form-header h2 {
+                font-size: 2rem !important;
+            }
+            
+            .contact-info-side {
+                padding: 1.5rem 1rem;
+                order: -1;
+            }
+            
+            .contact-details {
+                margin-top: 1rem;
+            }
+            
+            .contact-item {
+                padding: 0.75rem;
+                margin-bottom: 1rem;
+            }
+            
+            .contact-icon {
+                font-size: 1.2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .contact-form {
+                padding: 1.5rem 1rem;
+            }
+            
+            .contact-form-header h2 {
+                font-size: 1.6rem !important;
+            }
+            
+            .contact-form-header p {
+                font-size: 1rem !important;
+            }
+            
+            .form-group input,
+            .form-group textarea {
+                padding: 0.6rem 0.8rem;
+                font-size: 0.9rem;
+            }
+            
+            .btn-form {
+                padding: 0.8rem 1.5rem;
+                font-size: 1rem;
+            }
+            
+            .contact-item {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 0.5rem;
+            }
+            
+            .contact-icon {
+                font-size: 1.5rem;
+            }
+        }
+        
+        .authorized-reseller-image {
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-card);
+            padding: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 400px;
+        }
+        
+        .reseller-graphic {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            max-height: 350px;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+        
+        .authorized-reseller-image:hover .reseller-graphic {
+            transform: scale(1.02);
+        }
+        
+        @media (max-width: 768px) {
+            .authorized-reseller-section {
+                grid-template-columns: 1fr !important;
+                gap: 2rem;
+            }
+            
+            .authorized-reseller-image {
+                padding: 1.5rem;
+                min-height: 300px;
+            }
+            
+            .reseller-graphic {
+                max-height: 250px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .authorized-reseller-section {
+                gap: 1.5rem;
+            }
+            
+            .authorized-reseller-image {
+                padding: 1rem;
+                min-height: 250px;
+            }
+            
+            .reseller-graphic {
+                max-height: 200px;
+            }
+        }
+        
+        /* Client Logos Section */
+        .clients-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .client-logo {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 2rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-card);
+            transition: all 0.3s ease;
+            height: 120px;
+            border: 1px solid var(--color-gray-200);
+        }
+        
+        .client-logo:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            border-color: var(--color-primary);
+        }
+        
+        .client-image {
+            max-width: 100%;
+            max-height: 80px;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            filter: grayscale(100%);
+            transition: all 0.3s ease;
+        }
+        
+        .client-logo:hover .client-image {
+            filter: grayscale(0%);
+            transform: scale(1.05);
+        }
+        
+        @media (max-width: 1024px) {
+            .clients-grid {
+                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+                gap: 1.5rem;
+            }
+            
+            .client-logo {
+                padding: 1.5rem 1rem;
+                height: 100px;
+            }
+            
+            .client-image {
+                max-height: 60px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .clients-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 1.25rem;
+                margin-top: 2rem;
+            }
+            
+            .client-logo {
+                padding: 1.25rem 0.75rem;
+                height: 90px;
+            }
+            
+            .client-image {
+                max-height: 50px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .clients-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+            
+            .client-logo {
+                padding: 1rem 0.5rem;
+                height: 80px;
+            }
+            
+            .client-image {
+                max-height: 40px;
+            }
+        }
+        
+        /* Security Framework Section */
+        .security-framework-section {
+            gap: 3rem;
+        }
+        
+        .security-framework-image {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+            padding: 2.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 450px;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(0, 102, 204, 0.1);
+        }
+        
+        .security-framework-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--color-primary), var(--color-green-success));
+        }
+        
+        .security-graphic {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            max-height: 380px;
+            object-fit: contain;
+            transition: transform 0.4s ease;
+            filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.1));
+        }
+        
+        .security-framework-image:hover .security-graphic {
+            transform: scale(1.03);
+        }
+        
+        @media (max-width: 768px) {
+            .security-framework-section {
+                grid-template-columns: 1fr !important;
+                gap: 2rem;
+            }
+            
+            .security-framework-section > div:first-child {
+                order: 2;
+            }
+            
+            .security-framework-section > div:last-child {
+                order: 1;
+            }
+            
+            .security-framework-image {
+                padding: 2rem;
+                min-height: 350px;
+            }
+            
+            .security-graphic {
+                max-height: 300px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .security-framework-section {
+                gap: 1.5rem;
+            }
+            
+            .security-framework-image {
+                padding: 1.5rem;
+                min-height: 280px;
+            }
+            
+            .security-graphic {
+                max-height: 220px;
+            }
+        }
+        
+        /* Smart Features For Smart Networking Section */
+        .smart-features-section {
+            gap: 2rem;
+        }
+        
+        .smart-features-image {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 350px;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(0, 102, 204, 0.1);
+        }
+        
+        .smart-features-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-primary), var(--color-blue-accent));
+        }
+        
+        .smart-features-graphic {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            max-height: 300px;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+        
+        .smart-features-image:hover .smart-features-graphic {
+            transform: scale(1.02);
+        }
+        
+        .smart-features-list {
+            margin: var(--spacing-lg) 0;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-sm);
+            transition: all 0.3s ease;
+            padding: 0.5rem 0;
+            border-radius: 6px;
+        }
+        
+        .feature-item:hover {
+            background: rgba(0, 102, 204, 0.05);
+            padding-left: 0.5rem;
+            transform: translateX(5px);
+        }
+        
+        .feature-check {
+            width: 20px;
+            height: 20px;
+            background: var(--color-green-success);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 12px;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        
+        .feature-item span {
+            color: var(--color-gray-700);
+            font-weight: 500;
+            font-size: 1rem;
+            line-height: 1.3;
+        }
+        
+        @media (max-width: 768px) {
+            .smart-features-section {
+                grid-template-columns: 1fr !important;
+                gap: 1.5rem;
+            }
+            
+            .smart-features-section > div:first-child {
+                order: 1;
+            }
+            
+            .smart-features-section > div:last-child {
+                order: 2;
+            }
+            
+            .smart-features-image {
+                padding: 1.25rem;
+                min-height: 280px;
+            }
+            
+            .smart-features-graphic {
+                max-height: 240px;
+            }
+            
+            .smart-features-list {
+                margin: var(--spacing-md) 0;
+            }
+            
+            .feature-item {
+                margin-bottom: 0.75rem;
+                padding: 0.4rem 0;
+            }
+            
+            .feature-check {
+                width: 18px;
+                height: 18px;
+                font-size: 11px;
+            }
+            
+            .feature-item span {
+                font-size: 0.95rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .smart-features-section {
+                gap: 1rem;
+            }
+            
+            .smart-features-image {
+                padding: 1rem;
+                min-height: 220px;
+            }
+            
+            .smart-features-graphic {
+                max-height: 180px;
+            }
+            
+            .smart-features-list {
+                margin: var(--spacing-sm) 0;
+            }
+            
+            .feature-item {
+                margin-bottom: 0.6rem;
+                gap: 0.75rem;
+                padding: 0.3rem 0;
+            }
+            
+            .feature-check {
+                width: 16px;
+                height: 16px;
+                font-size: 10px;
+            }
+            
+            .feature-item span {
+                font-size: 0.9rem;
+                line-height: 1.2;
+            }
+        }
+        
+        /* Free Wi-Fi Assessment Section */
+        .wifi-assessment-section {
+            gap: 3rem;
+        }
+        
+        .wifi-assessment-image {
+            background: #f5f6f7;
+            border-radius: 20px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+            padding: 2.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 450px;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(0, 102, 204, 0.1);
+        }
+        
+        .wifi-assessment-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--color-primary), var(--color-blue-light));
+        }
+        
+        .wifi-assessment-graphic {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            max-height: 380px;
+            object-fit: contain;
+            transition: transform 0.4s ease;
+            filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.1));
+        }
+        
+        .wifi-assessment-image:hover .wifi-assessment-graphic {
+            transform: scale(1.03);
+        }
+        
+        @media (max-width: 768px) {
+            .wifi-assessment-section {
+                grid-template-columns: 1fr !important;
+                gap: 2rem;
+            }
+            
+            .wifi-assessment-image {
+                padding: 2rem;
+                min-height: 350px;
+            }
+            
+            .wifi-assessment-graphic {
+                max-height: 300px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .wifi-assessment-section {
+                gap: 1.5rem;
+            }
+            
+            .wifi-assessment-image {
+                padding: 1.5rem;
+                min-height: 280px;
+            }
+            
+            .wifi-assessment-graphic {
+                max-height: 220px;
+            }
+        }
+        
+        /* Contact Form Mobile Optimization */
+        @media (max-width: 768px) {
+            .contact-form {
+                padding: 2rem 1rem;
+            }
+            
+            .contact-form-header h2 {
+                font-size: 1.8rem !important;
+                text-align: center !important;
+                line-height: 1.3 !important;
+                margin-bottom: 1rem !important;
+            }
+            
+            .contact-form-header p {
+                font-size: 1rem !important;
+                text-align: center !important;
+                margin-bottom: 1.5rem !important;
+            }
+            
+            .form-row {
+                flex-direction: column;
+            }
+            
+            .form-group {
+                margin-bottom: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="navbar-content">
+                <div class="logo">
+                    <img src="assets/images/logos/ACEIT LOGO 2.png" alt="ACEiT Asia" style="height: 45px; width: auto;">
+                </div>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#certifications">Achievements</a></li>
+                    <li><a href="#assessment">Free Assessment</a></li>
+                    <li><a href="#todays-solutions">Solutions</a></li>
+                    <li><a href="#transformation">Transformation</a></li>
+                    <li><a href="#clients">Clients</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle mobile menu">
+                    ☰
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <!-- Hero Slider Background -->
+        <div class="hero-slider">
+            <div class="hero-slide hero-slide-1 active">
+                <div class="hero-content">
+                    <h1 class="hero-header">10+ Years of Excellence in Deployment</h1>
+                    <p class="hero-subheader">Hands-on experience and best practices for top enterprise solutions</p>
+                </div>
+            </div>
+            <div class="hero-slide hero-slide-2">
+                <div class="hero-content">
+                    <h1 class="hero-header">Highly Certified Aruba Platinum Partner</h1>
+                    <p class="hero-subheader">Certified experts for Aruba Central, ClearPass, Wireless LAN and Switching</p>
+                </div>
+                <div class="hero-badge">
+                    <img src="assets/images/graphics/Hero Section 2 Badge.png" alt="Aruba Platinum Partner Badge" />
+                </div>
+            </div>
+            <div class="hero-slide hero-slide-3">
+                <div class="hero-content">
+                    <h1 class="hero-header">ISO27001 Certified Information Security Practitioner</h1>
+                    <p class="hero-subheader">International standard of process-based approach for information security best practices</p>
+                </div>
+                <div class="hero-badge">
+                    <img src="assets/images/graphics/Hero Section 3 Badge.png" alt="ISO27001 Certification Badge" />
+                </div>
+            </div>
+        </div>
+        
+        <!-- Hero Navigation -->
+        <button class="hero-nav hero-nav-prev" aria-label="Previous slide">‹</button>
+        <button class="hero-nav hero-nav-next" aria-label="Next slide">›</button>
+        
+        <!-- Hero Slide Indicators -->
+        <div class="hero-controls">
+            <div class="hero-dot active" data-slide="0"></div>
+            <div class="hero-dot" data-slide="1"></div>
+            <div class="hero-dot" data-slide="2"></div>
+        </div>
+    </section>
+
+    <!-- Our Aruba Achievements (Certifications) -->
+    <section class="section certifications" id="certifications">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title">Our Aruba Achievements</h2>
+                <p class="section-subtitle">
+                    Our team holds industry-leading Aruba certifications, ensuring expert-level service delivery
+                </p>
+            </div>
+            
+            <div class="certifications-slider">
+                <div class="certifications-track" id="cert-track">
+                    <!-- Slide 1: Associate Level Certifications -->
+                    <div class="certifications-slide">
+                        <div class="certification-badge fade-in">
+                            <img src="assets/images/certifications/Aruba Certified Edge Associate (ACEA).png" 
+                                 alt="ACEA Certification" class="badge-image">
+                            <h4>Aruba Certified Edge Associate</h4>
+                            <p class="text-small">Edge Computing Fundamentals</p>
+                        </div>
+                        
+                        <div class="certification-badge fade-in">
+                            <img src="assets/images/certifications/Aruba Certified ClearPass Associate (ACCA).png" 
+                                 alt="ACCA Certification" class="badge-image">
+                            <h4>Aruba Certified ClearPass Associate</h4>
+                            <p class="text-small">Network Access Security</p>
+                        </div>
+                        
+                        <div class="certification-badge fade-in">
+                            <img src="assets/images/certifications/Aruba Certified Mobility Associate (ACMA).png" 
+                                 alt="ACMA Certification" class="badge-image">
+                            <h4>Aruba Certified Mobility Associate</h4>
+                            <p class="text-small">Wireless Network Fundamentals</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Slide 2: Professional Level Certifications -->
+                    <div class="certifications-slide">
+                        <div class="certification-badge fade-in">
+                            <img src="assets/images/certifications/Aruba Certified Edge Professional (ACEP).png" 
+                                 alt="ACEP Certification" class="badge-image">
+                            <h4>Aruba Certified Edge Professional</h4>
+                            <p class="text-small">Advanced Edge Solutions</p>
+                        </div>
+                        
+                        <div class="certification-badge fade-in">
+                            <img src="assets/images/certifications/Aruba Certified Clearpass Professional (ACCP).png" 
+                                 alt="ACCP Certification" class="badge-image">
+                            <h4>Aruba Certified ClearPass Professional</h4>
+                            <p class="text-small">Advanced Security Management</p>
+                        </div>
+                        
+                        <div class="certification-badge fade-in">
+                            <img src="assets/images/certifications/Aruba Certified Mobility Professional (ACMP).png" 
+                                 alt="ACMP Certification" class="badge-image">
+                            <h4>Aruba Certified Mobility Professional</h4>
+                            <p class="text-small">Advanced Wireless Solutions</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Slide 3: Switching & Sales Certifications -->
+                    <div class="certifications-slide">
+                        <div class="certification-badge fade-in">
+                            <img src="assets/images/certifications/Aruba Certified Switching Associate (ACSA).png" 
+                                 alt="ACSA Certification" class="badge-image">
+                            <h4>Aruba Certified Switching Associate</h4>
+                            <p class="text-small">Campus Switching Fundamentals</p>
+                        </div>
+                        
+                        <div class="certification-badge fade-in">
+                            <img src="assets/images/certifications/Aruba Certified Switching Professional (ACSP).png" 
+                                 alt="ACSP Certification" class="badge-image">
+                            <h4>Aruba Certified Switching Professional</h4>
+                            <p class="text-small">Advanced Switching Solutions</p>
+                        </div>
+                        
+                        <div class="certification-badge fade-in">
+                            <img src="assets/images/certifications/HPE Sales Certified - Aruba Products And Solutions.png" 
+                                 alt="HPE Sales Certification" class="badge-image">
+                            <h4>HPE Sales Certified</h4>
+                            <p class="text-small">Aruba Products & Solutions</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="certification-controls">
+                    <button class="cert-nav-btn" id="cert-prev" onclick="moveCertSlide(-1)">‹</button>
+                    <div class="cert-indicators" id="cert-indicators">
+                        <div class="cert-indicator active" onclick="goToCertSlide(0)" title="Associate Level"></div>
+                        <div class="cert-indicator" onclick="goToCertSlide(1)" title="Professional Level"></div>
+                        <div class="cert-indicator" onclick="goToCertSlide(2)" title="Switching & Sales"></div>
+                    </div>
+                    <button class="cert-nav-btn" id="cert-next" onclick="moveCertSlide(1)">›</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Free Wi-Fi Assessment Section -->
+    <section class="section" id="assessment">
+        <div class="container">
+            <div class="grid grid-2 wifi-assessment-section" style="align-items: center;">
+                <div class="fade-in">
+                    <h2 class="section-title text-left">Free Wi-Fi Assessment</h2>
+                    <p style="font-size: var(--text-body-large); margin-bottom: var(--spacing-lg); line-height: 1.6; color: var(--color-gray-600);">
+                        Uncover specific configurations or components that are affecting your performance. Know what is required to remediate and improve the overall health of the system.
+                    </p>
+                    
+                    <div style="margin-bottom: var(--spacing-xl);">
+                        <a href="#contact" class="btn btn-primary">Sign Up Now</a>
+                    </div>
+                </div>
+                
+                <div class="fade-in">
+                    <div class="wifi-assessment-image">
+                        <img src="assets/images/graphics/Free Wifi Assesment.png" alt="Free Wi-Fi Assessment" class="wifi-assessment-graphic">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solutions for Today's Environment Section -->
+    <section class="section bg-gray" id="todays-solutions">
+        <div class="container">
+            <div class="section-header fade-in">
+                <div class="section-label">SOLUTIONS FOR TODAY'S ENVIRONMENT</div>
+                <h2 class="section-title">Simple, Secure, All-inclusive</h2>
+                <p class="section-subtitle">
+                    Comprehensive Aruba solutions designed for modern business challenges
+                </p>
+            </div>
+            
+            <div class="todays-solutions-grid">
+                <div class="solution-flip-card fade-in stagger-1">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="feature-icon-clean">
+                                ★
+                            </div>
+                            <h3>Next-Gen Network Performance</h3>
+                            <p class="front-description">Lightning-fast connectivity and optimized network performance for modern business needs.</p>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3>Network Performance</h3>
+                            <ul class="feature-list-clean">
+                                <li>High Performance Connectivity</li>
+                                <li>Zero Touch Provisioning</li>
+                                <li>Network Optimization</li>
+                                <li>Routine Tasks Acceleration</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="solution-flip-card fade-in stagger-2">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="feature-icon-clean">
+                                ▲
+                            </div>
+                            <h3>Best In-Class Network Security</h3>
+                            <p class="front-description">Advanced security protocols and comprehensive threat protection for your network infrastructure.</p>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3>Network Security</h3>
+                            <ul class="feature-list-clean">
+                                <li>Intrusion Detection and Prevention</li>
+                                <li>Unified Policy Enforcement Firewall</li>
+                                <li>Web Content Filtering</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="solution-flip-card fade-in stagger-3">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="feature-icon-clean">
+                                ■
+                            </div>
+                            <h3>Simplified Network Management</h3>
+                            <p class="front-description">Streamlined network administration with centralized control and intuitive management tools.</p>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3>Network Management</h3>
+                            <ul class="feature-list-clean">
+                                <li>Built-to-Scale</li>
+                                <li>Versatile Deployment</li>
+                                <li>Made for Any Environment</li>
+                                <li>Single Pane Glass Management</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Business Transformation Section -->
+    <section class="section" id="transformation">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title">Your Business Transformation is As Easy As…</h2>
+                <p class="section-subtitle">
+                    Simple steps to modernize your network infrastructure with Aruba solutions
+                </p>
+            </div>
+            
+            <div class="transformation-steps">
+                <div class="transformation-card fade-in stagger-1">
+                    <div class="step-number">1</div>
+                    <div class="transformation-content">
+                        <img src="assets/images/graphics/Your Business Transformation is As Easy As… Card 1.png" 
+                             alt="Step 1 - Kickstart" class="transformation-image">
+                        <h3>Kickstart with switching and Wi-Fi</h3>
+                    </div>
+                </div>
+                
+                <div class="transformation-card fade-in stagger-2">
+                    <div class="step-number">2</div>
+                    <div class="transformation-content">
+                        <img src="assets/images/graphics/Your Business Transformation is As Easy As… Card 2.png" 
+                             alt="Step 2 - Add Layer" class="transformation-image">
+                        <h3>Add-in an aggregation layer and APs</h3>
+                    </div>
+                </div>
+                
+                <div class="transformation-card fade-in stagger-3">
+                    <div class="step-number">3</div>
+                    <div class="transformation-content">
+                        <img src="assets/images/graphics/Your Business Transformation is As Easy As…Card 3.png" 
+                             alt="Step 3 - Cloud Management" class="transformation-image">
+                        <h3>Start services expansion and manage multiple sites from the cloud</h3>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center fade-in">
+                <a href="#contact" class="btn btn-primary">Get Free Consultation</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- End-to-End Network Solutions Section -->
+    <section class="section bg-gray">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title">End-To-End Network Solutions</h2>
+                <p class="section-subtitle">
+                    Comprehensive Aruba networking portfolio for enterprise environments
+                </p>
+            </div>
+            
+            <div class="end-to-end-grid">
+                <div class="solution-card fade-in stagger-1">
+                    <div class="solution-image-container">
+                        <img src="assets/images/graphics/End-To-End Network Solutions Card 1.png" 
+                             alt="Access Points" class="solution-image">
+                    </div>
+                    <div class="solution-content">
+                        <h3>Access Points</h3>
+                        <p class="solution-description">Flexible deployment for controller-managed, controllerless (instant) and remote access modes APs.</p>
+                        <p class="solution-ideal">Ideal for users needing network access from remote locations while maintaining connectivity to instructional tools and systems.</p>
+                    </div>
+                </div>
+                
+                <div class="solution-card fade-in stagger-2">
+                    <div class="solution-image-container">
+                        <img src="assets/images/graphics/End-To-End Network Solutions Card 2.png" 
+                             alt="Switches" class="solution-image">
+                    </div>
+                    <div class="solution-content">
+                        <h3>Switches</h3>
+                        <p class="solution-description">Built-in security and intelligent automations for enterprise branches, data centres and SMBs.</p>
+                        <p class="solution-ideal">Ideal for organizations with built-in security and intelligent automation</p>
+                    </div>
+                </div>
+                
+                <div class="solution-card fade-in stagger-3">
+                    <div class="solution-image-container">
+                        <img src="assets/images/graphics/End-To-End Network Solutions Card 3.png" 
+                             alt="Network Management" class="solution-image">
+                    </div>
+                    <div class="solution-content">
+                        <h3>Network Management</h3>
+                        <p class="solution-description">Delivers granular visibility, powerful control, and deeper insights for your network.</p>
+                        <p class="solution-ideal">For challenging IT environments that require granular visibility, powerful control, and deeper insights of the local network or in the cloud</p>
+                    </div>
+                </div>
+                
+                <div class="solution-card fade-in stagger-4">
+                    <div class="solution-image-container">
+                        <img src="assets/images/graphics/End-To-End_Network_Solutions_Card_4-removebg-preview.png" 
+                             alt="Software Defined WAN" class="solution-image">
+                    </div>
+                    <div class="solution-content">
+                        <h3>Software Defined WAN</h3>
+                        <p class="solution-description">A better way to control WAN traffic and gain visibility for all existing branch deployment.</p>
+                        <p class="solution-ideal">Simplified and cost-effective way of controlling WAN traffic and gain visibility for all existing branch deployments</p>
+                    </div>
+                </div>
+                
+                <div class="solution-card fade-in stagger-5">
+                    <div class="solution-image-container">
+                        <img src="assets/images/graphics/End-To-End Network Solutions Card 5.png" 
+                             alt="Aruba ClearPass" class="solution-image">
+                    </div>
+                    <div class="solution-content">
+                        <h3>Aruba ClearPass</h3>
+                        <p class="solution-description">Manage and control access for mobile and IoT on vendor's wired and wireless networks.</p>
+                        <p class="solution-ideal">Authentication access management with AI-powered visibility and policy enforcement for mobile and IoT on any wired and wireless networks</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Strengthen Your Security Framework Section -->
+    <section class="section">
+        <div class="container">
+            <div class="grid grid-2 security-framework-section" style="align-items: center;">
+                <div class="fade-in">
+                    <h2 class="section-title text-left">Strengthen Your Security Framework</h2>
+                    <h3 style="color: var(--color-primary); font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600;">
+                        Protect your business from edge-to-cloud
+                    </h3>
+                    <p style="font-size: var(--text-body-large); margin-bottom: var(--spacing-xl); line-height: 1.6; color: var(--color-gray-600);">
+                        Gain the advantages of the cloud with consistent network protection with Aruba's built-in foundation for Zero Trust and SASE.
+                    </p>
+                </div>
+                
+                <div class="fade-in">
+                    <div class="security-framework-image">
+                        <img src="assets/images/graphics/Strengthen Your Security Framework.png" alt="Strengthen Your Security Framework" class="security-graphic">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Smart Features For Smart Networking Section -->
+    <section class="section bg-gray">
+        <div class="container">
+            <div class="grid grid-2 smart-features-section" style="align-items: center;">
+                <div class="fade-in">
+                    <div class="smart-features-image">
+                        <img src="assets/images/graphics/Smart Features For Smart Networking.png" alt="Smart Features For Smart Networking" class="smart-features-graphic">
+                    </div>
+                </div>
+                
+                <div class="fade-in">
+                    <h2 class="section-title text-left">Smart Features For Smart Networking</h2>
+                    
+                    <div class="smart-features-list">
+                        <div class="feature-item">
+                            <div class="feature-check">✓</div>
+                            <span>Better IT operations</span>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <div class="feature-check">✓</div>
+                            <span>Data security</span>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <div class="feature-check">✓</div>
+                            <span>A competitive edge that is intelligent, safe, and fast</span>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <div class="feature-check">✓</div>
+                            <span>Increased capabilities</span>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <div class="feature-check">✓</div>
+                            <span>Ability to better serve and retain customers</span>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <div class="feature-check">✓</div>
+                            <span>Increased profitability</span>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: var(--spacing-xl);">
+                        <a href="#contact" class="btn btn-primary">Get Free Consultation</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Authorized Reseller Section -->
+    <section class="section bg-gray">
+        <div class="container">
+            <div class="grid grid-2 authorized-reseller-section" style="align-items: center;">
+                <div class="fade-in">
+                    <h2 class="section-title text-left">We are the Authorised Reseller for Aruba Networks Solution</h2>
+                    <p style="font-size: var(--text-body-large); margin-bottom: var(--spacing-lg);">
+                        AceTeam Networks is a fast-growing IT solution company in Malaysia, specialized in Network Infrastructure & Security, Data Center, Network Management, End User Computing & Mobility.
+                    </p>
+                    <div style="margin-bottom: var(--spacing-lg);">
+                        <h4>Our Services Include:</h4>
+                        <ul style="list-style: none; margin-top: var(--spacing-md);">
+                            <li class="reseller-service-item">
+                                <div class="check-icon">✓</div>
+                                <span>IT System Design for business and organization needs</span>
+                            </li>
+                            <li class="reseller-service-item">
+                                <div class="check-icon">✓</div>
+                                <span>Network Infrastructure & Security Solutions</span>
+                            </li>
+                            <li class="reseller-service-item">
+                                <div class="check-icon">✓</div>
+                                <span>Data Center Solutions</span>
+                            </li>
+                            <li class="reseller-service-item">
+                                <div class="check-icon">✓</div>
+                                <span>End User Computing & Mobility</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <a href="#contact" class="btn btn-primary">I want a POC</a>
+                </div>
+                
+                <div class="fade-in">
+                    <div class="authorized-reseller-image">
+                        <img src="assets/images/graphics/We are the Authorised Reseller for Aruba Networks Solution.png" alt="Authorised Reseller for Aruba Networks Solution" class="reseller-graphic">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Aruba Clientele (Client Showcase) -->
+    <section class="section bg-gray" id="clients">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title">Our Aruba Clientele</h2>
+                <p class="section-subtitle">
+                    We proudly serve enterprise clients across education, finance, energy, and technology sectors
+                </p>
+            </div>
+            
+            <div class="clients-grid">
+                <div class="client-logo fade-in stagger-1">
+                    <img src="assets/images/clients/petronas.png" alt="PETRONAS" class="client-image">
+                </div>
+                <div class="client-logo fade-in stagger-2">
+                    <img src="assets/images/clients/maxis.png" alt="Maxis" class="client-image">
+                </div>
+                <div class="client-logo fade-in stagger-3">
+                    <img src="assets/images/clients/iium.png" alt="IIUM" class="client-image">
+                </div>
+                <div class="client-logo fade-in stagger-4">
+                    <img src="assets/images/clients/cagamas-logo-1536x531.png" alt="Cagamas" class="client-image">
+                </div>
+                <div class="client-logo fade-in stagger-1">
+                    <img src="assets/images/clients/unisel.png" alt="UNISEL" class="client-image">
+                </div>
+                <div class="client-logo fade-in stagger-2">
+                    <img src="assets/images/clients/pnb.png" alt="PNB" class="client-image">
+                </div>
+                <div class="client-logo fade-in stagger-3">
+                    <img src="assets/images/clients/sime-darby.png" alt="Sime Darby" class="client-image">
+                </div>
+                <div class="client-logo fade-in stagger-4">
+                    <img src="assets/images/clients/uthm.png" alt="UTHM" class="client-image">
+                </div>
+                <div class="client-logo fade-in stagger-1">
+                    <img src="assets/images/clients/unisel-business.png" alt="UNISEL Business" class="client-image">
+                </div>
+                <div class="client-logo fade-in stagger-2">
+                    <img src="assets/images/clients/imu.png" alt="IMU" class="client-image">
+                </div>
+                <div class="client-logo fade-in stagger-3">
+                    <img src="assets/images/clients/ucsi.png" alt="UCSI" class="client-image">
+                </div>
+                <div class="client-logo fade-in stagger-4">
+                    <img src="assets/images/clients/tupperware.png" alt="Tupperware" class="client-image">
+                </div>
+                <div class="client-logo fade-in stagger-1">
+                    <img src="assets/images/clients/unirazak.png" alt="UNIRAZAK" class="client-image">
+                </div>
+                <div class="client-logo fade-in stagger-2">
+                    <img src="assets/images/clients/aism.png" alt="AISM" class="client-image">
+                </div>
+                <div class="client-logo fade-in stagger-3">
+                    <img src="assets/images/clients/logo-sel.png" alt="Logo SEL" class="client-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title">Resources & Insights</h2>
+                <p class="section-subtitle">
+                    Stay informed with the latest network security trends and best practices
+                </p>
+            </div>
+            
+            <div class="grid grid-3">
+                <div class="card fade-in stagger-1">
+                    <h3 class="card-title">Zero Trust Network Guide</h3>
+                    <p class="card-description">
+                        Granting Trust on a Zero Trust Network: Why Zero Trust is best practice for modern enterprise security.
+                    </p>
+                    <a href="#contact" class="btn btn-outline">Find Out More</a>
+                </div>
+                
+                <div class="card fade-in stagger-2">
+                    <h3 class="card-title">Zero Trust Webinar</h3>
+                    <p class="card-description">
+                        Is Zero Trust Networking Practical or Not? Join the debate on trend vs practicality in network security.
+                    </p>
+                    <a href="#contact" class="btn btn-outline">Watch On-Demand</a>
+                </div>
+                
+                <div class="card fade-in stagger-3">
+                    <h3 class="card-title">Product Brochure</h3>
+                    <p class="card-description">
+                        Aruba Products and Solutions Brochure Enterprise Edition with comprehensive solution overview.
+                    </p>
+                    <a href="#contact" class="btn btn-outline">Download PDF</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="section contact-form-section" id="contact" style="background: linear-gradient(135deg, #001f3f 0%, #003366 50%, #0066cc 100%); color: white; position: relative; overflow: hidden;">
+        <!-- Background Pattern -->
+        <div class="bg-pattern"></div>
+        
+        <div class="container" style="position: relative; z-index: 2;">
+            <div style="max-width: 600px; margin: 0 auto;">
+                <!-- Contact Form -->
+                <div class="fade-in">
+                    <div class="contact-form-header" style="text-align: center; margin-bottom: 2rem;">
+                        <h2 class="section-title" style="color: white; margin-bottom: 1rem; font-size: 2.5rem; font-weight: 700; line-height: 1.2;">Ready to see how Aruba can connect your business seamlessly?</h2>
+                        <p style="font-size: 1.2rem; color: rgba(255, 255, 255, 0.9); margin-bottom: 0; max-width: 500px; margin-left: auto; margin-right: auto;">Speak with one of our Aruba experts today!</p>
+                    </div>
+                    
+                    <form class="contact-form" id="arubaContactForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Name *</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="phone">Phone *</label>
+                                <input type="tel" id="phone" name="phone" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="jobTitle">Job Title *</label>
+                                <input type="text" id="jobTitle" name="jobTitle" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="company">Company Name *</label>
+                            <input type="text" id="company" name="company" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="4" placeholder="Tell us about your network requirements..."></textarea>
+                            <div class="char-count">0 of 300 max characters</div>
+                        </div>
+                        
+                        <div class="form-checkbox">
+                            <input type="checkbox" id="privacy" name="privacy" required>
+                            <label for="privacy">By submitting this form, I confirm that I have read, understood and agree to the Privacy Policy.</label>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-form">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background: var(--color-black); color: white; padding: var(--spacing-xl) 0;">
+        <div class="container">
+            <div class="grid grid-3">
+                <div>
+                    <div class="logo" style="color: white; margin-bottom: var(--spacing-lg);">
+                        <img src="assets/images/logos/ACEIT LOGO 2.png" alt="ACEiT Logo" style="height: 45px; width: auto; vertical-align: middle;">
+                    </div>
+                    <p style="color: rgba(255,255,255,0.8); margin-bottom: var(--spacing-lg);">
+                        Fast-growing IT solution company in Malaysia, specialized in Network Infrastructure & Security, 
+                        Data Center, Network Management, End User Computing & Mobility.
+                    </p>
+                    <div style="display: flex; gap: 15px; margin-top: 20px;">
+                        <a href="https://www.linkedin.com/company/14503284/admin/dashboard/" target="_blank" rel="noopener noreferrer" 
+                           class="social-icon" 
+                           style="color: rgba(255,255,255,0.8); font-size: 18px; text-decoration: none; transition: all 0.3s; 
+                                  display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; 
+                                  border: 2px solid rgba(255,255,255,0.3); border-radius: 50%; background: rgba(255,255,255,0.05);" 
+                           onmouseover="this.style.color='#0077B5'; this.style.borderColor='#0077B5'; this.style.background='rgba(0,119,181,0.1)';" 
+                           onmouseout="this.style.color='rgba(255,255,255,0.8)'; this.style.borderColor='rgba(255,255,255,0.3)'; this.style.background='rgba(255,255,255,0.05)';">
+                           <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://www.facebook.com/aceteamnetworks/" target="_blank" rel="noopener noreferrer" 
+                           class="social-icon"
+                           style="color: rgba(255,255,255,0.8); font-size: 18px; text-decoration: none; transition: all 0.3s; 
+                                  display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; 
+                                  border: 2px solid rgba(255,255,255,0.3); border-radius: 50%; background: rgba(255,255,255,0.05);" 
+                           onmouseover="this.style.color='#1877F2'; this.style.borderColor='#1877F2'; this.style.background='rgba(24,119,242,0.1)';" 
+                           onmouseout="this.style.color='rgba(255,255,255,0.8)'; this.style.borderColor='rgba(255,255,255,0.3)'; this.style.background='rgba(255,255,255,0.05)';">
+                           <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/aceteamnetworks/?hl=en" target="_blank" rel="noopener noreferrer" 
+                           class="social-icon"
+                           style="color: rgba(255,255,255,0.8); font-size: 18px; text-decoration: none; transition: all 0.3s; 
+                                  display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; 
+                                  border: 2px solid rgba(255,255,255,0.3); border-radius: 50%; background: rgba(255,255,255,0.05);" 
+                           onmouseover="this.style.color='#E4405F'; this.style.borderColor='#E4405F'; this.style.background='rgba(228,64,95,0.1)';" 
+                           onmouseout="this.style.color='rgba(255,255,255,0.8)'; this.style.borderColor='rgba(255,255,255,0.3)'; this.style.background='rgba(255,255,255,0.05)';">
+                           <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 style="color: white; margin-bottom: var(--spacing-lg);">Quick Links</h4>
+                    <ul style="list-style: none;">
+                        <li style="margin-bottom: var(--spacing-sm);"><a href="#solutions" style="color: rgba(255,255,255,0.8);">Solutions</a></li>
+                        <li style="margin-bottom: var(--spacing-sm);"><a href="#certifications" style="color: rgba(255,255,255,0.8);">Certifications</a></li>
+                        <li style="margin-bottom: var(--spacing-sm);"><a href="#clients" style="color: rgba(255,255,255,0.8);">Clients</a></li>
+                        <li style="margin-bottom: var(--spacing-sm);"><a href="#contact" style="color: rgba(255,255,255,0.8);">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 style="color: white; margin-bottom: var(--spacing-lg);">Contact Info</h4>
+                    <p style="color: rgba(255,255,255,0.8); margin-bottom: var(--spacing-sm);">
+                        Phone: +603 7727 7000
+                    </p>
+                    <p style="color: rgba(255,255,255,0.8); margin-bottom: var(--spacing-sm);">
+                        WhatsApp: +6011 5405 7715
+                    </p>
+                    <p style="color: rgba(255,255,255,0.8); margin-bottom: var(--spacing-sm);">
+                        Email: acemarketing@aceteamnetworks.com
+                    </p>
+                    <p style="color: rgba(255,255,255,0.8); font-size: var(--text-small);">
+                        Suite 306, Level 3, Block C, Damansara Intan,<br>
+                        No. 1 Jalan SS20/27, 47400 Petaling Jaya, Selangor
+                    </p>
+                </div>
+            </div>
+            
+            <div style="border-top: 1px solid rgba(255,255,255,0.2); margin-top: var(--spacing-xl); padding-top: var(--spacing-lg); text-align: center;">
+                <p style="color: rgba(255,255,255,0.6); margin-bottom: 0;">
+                    © 2025 All rights reserved. | Authorized Aruba Networks Reseller
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Interactions and Animations -->
+    <script>
+        // Performance optimized JavaScript with error handling
+        document.addEventListener('DOMContentLoaded', function() {
+            try {
+                // Mobile menu toggle
+                const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+                const navMenu = document.getElementById('navMenu');
+                
+                if (mobileMenuToggle && navMenu) {
+                    mobileMenuToggle.addEventListener('click', function() {
+                        navMenu.classList.toggle('active');
+                        this.textContent = navMenu.classList.contains('active') ? '✕' : '☰';
+                    });
+                }
+                
+                // Navbar scroll effect
+                const navbar = document.getElementById('navbar');
+                let lastScrollY = window.scrollY;
+                
+                function updateNavbar() {
+                    if (navbar) {
+                        if (window.scrollY > 50) {
+                            navbar.classList.add('scrolled');
+                        } else {
+                            navbar.classList.remove('scrolled');
+                        }
+                    }
+                    lastScrollY = window.scrollY;
+                }
+                
+                window.addEventListener('scroll', updateNavbar, { passive: true });
+                
+                // Intersection Observer for scroll animations
+                const observerOptions = {
+                    threshold: 0.2,
+                    rootMargin: '0px 0px -50px 0px'
+                };
+                
+                const observer = new IntersectionObserver(function(entries) {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                        }
+                    });
+                }, observerOptions);
+                
+                // Observe all animation elements
+                document.querySelectorAll('.fade-in, .slide-up, .scale-in').forEach(el => {
+                    observer.observe(el);
+                });
+                
+                // Hero Slider Functionality
+                function initHeroSlider() {
+                    const slides = document.querySelectorAll('.hero-slide');
+                    const dots = document.querySelectorAll('.hero-dot');
+                    const prevBtn = document.querySelector('.hero-nav-prev');
+                    const nextBtn = document.querySelector('.hero-nav-next');
+                    let currentSlide = 0;
+                    let slideInterval;
+                    
+                    function showSlide(index) {
+                        // Remove active class from all slides and dots
+                        slides.forEach(slide => slide.classList.remove('active'));
+                        dots.forEach(dot => dot.classList.remove('active'));
+                        
+                        // Add active class to current slide and dot
+                        slides[index].classList.add('active');
+                        dots[index].classList.add('active');
+                        
+                        currentSlide = index;
+                    }
+                    
+                    function nextSlide() {
+                        const next = (currentSlide + 1) % slides.length;
+                        showSlide(next);
+                    }
+                    
+                    function prevSlide() {
+                        const prev = (currentSlide - 1 + slides.length) % slides.length;
+                        showSlide(prev);
+                    }
+                    
+                    function startAutoSlide() {
+                        slideInterval = setInterval(nextSlide, 5000); // Change slide every 5 seconds
+                    }
+                    
+                    function stopAutoSlide() {
+                        clearInterval(slideInterval);
+                    }
+                    
+                    // Event listeners
+                    if (nextBtn) {
+                        nextBtn.addEventListener('click', () => {
+                            nextSlide();
+                            stopAutoSlide();
+                            setTimeout(startAutoSlide, 10000); // Restart auto-slide after 10 seconds
+                        });
+                    }
+                    
+                    if (prevBtn) {
+                        prevBtn.addEventListener('click', () => {
+                            prevSlide();
+                            stopAutoSlide();
+                            setTimeout(startAutoSlide, 10000); // Restart auto-slide after 10 seconds
+                        });
+                    }
+                    
+                    // Dot navigation
+                    dots.forEach((dot, index) => {
+                        dot.addEventListener('click', () => {
+                            showSlide(index);
+                            stopAutoSlide();
+                            setTimeout(startAutoSlide, 10000); // Restart auto-slide after 10 seconds
+                        });
+                    });
+                    
+                    // Pause on hover
+                    const heroSection = document.querySelector('.hero');
+                    if (heroSection) {
+                        heroSection.addEventListener('mouseenter', stopAutoSlide);
+                        heroSection.addEventListener('mouseleave', startAutoSlide);
+                    }
+                    
+                    // Start auto-slide
+                    startAutoSlide();
+                }
+                
+                // Initialize hero slider
+                initHeroSlider();
+                
+                // Smooth scrolling for anchor links
+                document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                    anchor.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const target = document.querySelector(this.getAttribute('href'));
+                        if (target) {
+                            const offsetTop = target.offsetTop - 80; // Account for fixed navbar
+                            window.scrollTo({
+                                top: offsetTop,
+                                behavior: 'smooth'
+                            });
+                        }
+                    });
+                });
+                
+                // Counter animation for statistics
+                function animateCounters() {
+                    const counters = document.querySelectorAll('.stat-number');
+                    counters.forEach(counter => {
+                        const target = parseInt(counter.textContent);
+                        let current = 0;
+                        const increment = target / 100;
+                        const timer = setInterval(() => {
+                            current += increment;
+                            counter.textContent = Math.floor(current);
+                            if (current >= target) {
+                                counter.textContent = target;
+                                clearInterval(timer);
+                            }
+                        }, 20);
+                    });
+                }
+                
+                // Trigger counter animation when statistics section is visible
+                const statsObserver = new IntersectionObserver(function(entries) {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            animateCounters();
+                            statsObserver.disconnect();
+                        }
+                    });
+                }, { threshold: 0.5 });
+                
+                const statsSection = document.querySelector('.stat-number');
+                if (statsSection) {
+                    statsObserver.observe(statsSection.closest('.section'));
+                }
+                
+            } catch (error) {
+                console.error('JavaScript error:', error);
+                // Graceful degradation - page still functions without JS
+            }
+        });
+        
+        // Error handling for failed resource loads
+        window.addEventListener('error', function(e) {
+            console.error('Resource loading error:', e);
+            // Could implement fallback loading here
+        });
+        
+        // Performance monitoring
+        window.addEventListener('load', function() {
+            // Log performance metrics for optimization
+            if (window.performance) {
+                const loadTime = window.performance.timing.loadEventEnd - window.performance.timing.navigationStart;
+                console.log('Page load time:', loadTime + 'ms');
+            }
+        });
+        
+        // Certification Slider Functionality
+        function initCertificationSlider() {
+            let currentCertSlide = 0;
+            const certTrack = document.getElementById('cert-track');
+            const certIndicators = document.querySelectorAll('.cert-indicator');
+            const certPrevBtn = document.getElementById('cert-prev');
+            const certNextBtn = document.getElementById('cert-next');
+            const totalCertSlides = 3;
+            
+            function showCertSlide(index) {
+                if (index < 0) index = totalCertSlides - 1;
+                if (index >= totalCertSlides) index = 0;
+                
+                currentCertSlide = index;
+                
+                if (certTrack) {
+                    certTrack.style.transform = `translateX(-${index * 33.333}%)`;
+                }
+                
+                // Update indicators
+                certIndicators.forEach((indicator, i) => {
+                    indicator.classList.toggle('active', i === index);
+                });
+                
+                // Keep buttons enabled for circular navigation
+                if (certPrevBtn) certPrevBtn.disabled = false;
+                if (certNextBtn) certNextBtn.disabled = false;
+            }
+            
+            // Navigation functions (global scope)
+            window.moveCertSlide = function(direction) {
+                const newIndex = currentCertSlide + direction;
+                showCertSlide(newIndex);
+            };
+            
+            window.goToCertSlide = function(index) {
+                showCertSlide(index);
+            };
+            
+            // Initialize
+            showCertSlide(0);
+            
+            // Touch/Swipe support for mobile
+            let startX = 0;
+            let endX = 0;
+            
+            if (certTrack) {
+                certTrack.addEventListener('touchstart', (e) => {
+                    startX = e.touches[0].clientX;
+                });
+                
+                certTrack.addEventListener('touchend', (e) => {
+                    endX = e.changedTouches[0].clientX;
+                    const diff = startX - endX;
+                    
+                    // Minimum swipe distance of 50px
+                    if (Math.abs(diff) > 50) {
+                        if (diff > 0) {
+                            // Swiped left - next slide
+                            moveCertSlide(1);
+                        } else {
+                            // Swiped right - previous slide
+                            moveCertSlide(-1);
+                        }
+                    }
+                });
+            }
+            
+            // Auto-slide every 8 seconds
+            startCertAutoSlide();
+        }
+        
+        // Simple certification slider initialization
+        document.addEventListener('DOMContentLoaded', function() {
+            let currentCertSlide = 0;
+            const totalSlides = 3;
+            
+            function updateSlider() {
+                const certTrack = document.getElementById('cert-track');
+                const certIndicators = document.querySelectorAll('.cert-indicator');
+                
+                if (certTrack) {
+                    certTrack.style.transform = `translateX(-${currentCertSlide * 33.333}%)`;
+                }
+                
+                certIndicators.forEach((indicator, index) => {
+                    indicator.classList.toggle('active', index === currentCertSlide);
+                });
+            }
+            
+            // Global navigation functions
+            window.moveCertSlide = function(direction) {
+                currentCertSlide = (currentCertSlide + direction + totalSlides) % totalSlides;
+                updateSlider();
+            };
+            
+            window.goToCertSlide = function(index) {
+                currentCertSlide = index;
+                updateSlider();
+            };
+            
+            // Initialize and start auto-slide
+            updateSlider();
+            setInterval(() => moveCertSlide(1), 8000);
+        });
+        
+        // Contact Form JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            const messageTextarea = document.getElementById('message');
+            const charCount = document.querySelector('.char-count');
+            const contactForm = document.getElementById('arubaContactForm');
+            
+            // Character counter for message field
+            if (messageTextarea && charCount) {
+                messageTextarea.addEventListener('input', function() {
+                    const length = this.value.length;
+                    const maxLength = 300;
+                    charCount.textContent = `${length} of ${maxLength} max characters`;
+                    
+                    if (length > maxLength) {
+                        this.value = this.value.substring(0, maxLength);
+                        charCount.textContent = `${maxLength} of ${maxLength} max characters`;
+                        charCount.style.color = '#ff6b6b';
+                    } else {
+                        charCount.style.color = 'rgba(255, 255, 255, 0.6)';
+                    }
+                });
+            }
+            
+            // Form submission handler
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Get form data
+                    const formData = new FormData(this);
+                    const formObject = {};
+                    formData.forEach((value, key) => {
+                        formObject[key] = value;
+                    });
+                    
+                    // Basic validation
+                    if (!formObject.privacy) {
+                        alert('Please accept the Privacy Policy to continue.');
+                        return;
+                    }
+                    
+                    // Simulate form submission (replace with actual submission logic)
+                    const submitBtn = this.querySelector('.btn-form');
+                    const originalText = submitBtn.textContent;
+                    submitBtn.textContent = 'Sending...';
+                    submitBtn.disabled = true;
+                    
+                    setTimeout(() => {
+                        alert('Thank you for your interest! Our Aruba experts will contact you soon.');
+                        this.reset();
+                        charCount.textContent = '0 of 300 max characters';
+                        submitBtn.textContent = originalText;
+                        submitBtn.disabled = false;
+                    }, 2000);
+                });
+            }
+        });
+    </script>
+</body>
+</html>

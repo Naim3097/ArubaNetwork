@@ -1,0 +1,24 @@
+{
+  "name": "aruba-landing-page",
+  "version": "1.0.0",
+  "description": "ACEiT Asia Aruba Networks Landing Page",
+  "scripts": {
+    "start": "live-server --host=localhost --port=3000 --open=/index.html",
+    "validate-html": "echo 'HTML validation: Use HTMLHint extension in VS Code or W3C validator'",
+    "validate-css": "echo 'CSS validation: Use Stylelint extension in VS Code'",
+    "validate-accessibility": "echo 'Accessibility: Use axe extension in VS Code'",
+    "test-performance": "echo 'Performance: Use Lighthouse in Chrome DevTools'",
+    "format": "prettier --write *.html *.css *.js",
+    "validate-all": "echo 'Running all validations...' && npm run validate-html && npm run validate-css && npm run validate-accessibility",
+    "dev": "live-server --host=localhost --port=3000",
+    "build": "echo 'Build process: Minify CSS/JS, optimize images'",
+    "test-mobile": "echo 'Mobile testing: Use Chrome DevTools device simulation'",
+    "test-cross-browser": "echo 'Cross-browser: Test in Chrome, Firefox, Safari, Edge'"
+  },
+  "devDependencies": {
+    "prettier": "^3.0.0"
+  },
+  "keywords": ["aruba", "networks", "landing-page", "enterprise", "wifi"],
+  "author": "ACEiT Asia",
+  "license": "ISC"
+}
