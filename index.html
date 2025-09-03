@@ -575,8 +575,9 @@
         
         /* Additional Mobile Override */
         @media (max-width: 480px) {
+            /* Hero 1: Fix awkward image positioning - show better section of the image */
             .hero-slider .hero-slide-1 {
-                background-position: center 70% !important;
+                background-position: center bottom !important;
             }
             
             .hero-content {
@@ -596,14 +597,25 @@
                 line-height: 1.3;
             }
             
+            /* Hero 2 & 3: Larger badges, positioned lower and centered */
             .hero-badge {
-                right: 1rem;
-                bottom: 1rem;
+                right: auto;
+                left: 50%;
+                bottom: 2rem;
                 top: auto;
-                transform: none;
-                max-width: 48px;
-                max-height: 48px;
-                opacity: 0.85;
+                transform: translateX(-50%);
+                max-width: 72px; /* 50% larger than previous 48px */
+                max-height: 72px;
+                opacity: 0.9;
+            }
+            
+            /* Hide navigation arrows on mobile */
+            .hero-nav {
+                display: none !important;
+            }
+            
+            .hero-nav-prev, .hero-nav-next {
+                display: none !important;
             }
         }
         
@@ -3366,6 +3378,36 @@
                     if (heroSection) {
                         heroSection.addEventListener('mouseenter', stopAutoSlide);
                         heroSection.addEventListener('mouseleave', startAutoSlide);
+                    }
+                    
+                    // Touch/Swipe support for mobile hero slider
+                    let startX = 0;
+                    let endX = 0;
+                    
+                    if (heroSection) {
+                        heroSection.addEventListener('touchstart', (e) => {
+                            startX = e.touches[0].clientX;
+                        }, { passive: true });
+                        
+                        heroSection.addEventListener('touchend', (e) => {
+                            endX = e.changedTouches[0].clientX;
+                            const diff = startX - endX;
+                            
+                            // Minimum swipe distance of 50px
+                            if (Math.abs(diff) > 50) {
+                                if (diff > 0) {
+                                    // Swiped left - next slide
+                                    nextSlide();
+                                    stopAutoSlide();
+                                    setTimeout(startAutoSlide, 10000);
+                                } else {
+                                    // Swiped right - previous slide
+                                    prevSlide();
+                                    stopAutoSlide();
+                                    setTimeout(startAutoSlide, 10000);
+                                }
+                            }
+                        }, { passive: true });
                     }
                     
                     // Start auto-slide
