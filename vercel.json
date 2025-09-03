@@ -1,0 +1,7 @@
+{
+  "buildCommand": "",
+  "outputDirectory": ".",
+  "installCommand": "npm install",
+  "devCommand": "python -m http.server 8000",
+  "framework": null
+}
