@@ -156,9 +156,19 @@
             padding: var(--spacing-3xl) 0;
         }
         
+        /* Reduce padding between second and third sections (desktop only) */
+        #assessment {
+            padding-top: var(--spacing-lg) !important;
+        }
+        
         @media (max-width: 768px) {
             .section {
                 padding: var(--spacing-xl) 0;
+            }
+            
+            /* Reset mobile padding for assessment section */
+            #assessment {
+                padding-top: var(--spacing-xl) !important;
             }
         }
         
