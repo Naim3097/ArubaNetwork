@@ -782,6 +782,8 @@
         /* Certification Badge Styles */
         .certifications {
             background: linear-gradient(135deg, var(--color-primary-50), var(--color-secondary-50));
+            padding-bottom: 6rem; /* Add extra gap after achievements section */
+            padding-top: 3rem; /* Reduce top padding */
         }
         
         .certifications-slider {
@@ -940,6 +942,11 @@
         }
         
         @media (max-width: 768px) {
+            .certifications {
+                padding-bottom: 4rem; /* Reduced gap on mobile */
+                padding-top: 2rem; /* Reduced padding on mobile */
+            }
+            
             .certifications-slide {
                 grid-template-columns: 1fr;
                 gap: 1.5rem;
@@ -984,6 +991,11 @@
         }
         
         @media (max-width: 480px) {
+            .certifications {
+                padding-bottom: 3rem; /* Further reduced on smallest screens */
+                padding-top: 1.5rem;
+            }
+            
             .certifications-slide {
                 gap: 1rem;
                 padding: 0 0.25rem;
