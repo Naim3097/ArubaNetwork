@@ -1368,6 +1368,8 @@
                 overflow: hidden;
                 display: block;
                 margin-bottom: 0;
+                position: relative;
+                z-index: 1;
             }
             
             .solution-flip-card .flip-card-inner {
@@ -1375,6 +1377,8 @@
                 position: static;
                 height: auto;
                 width: 100%;
+                background: none !important;
+                box-shadow: none !important;
             }
             
             .solution-flip-card .flip-card-front {
@@ -1385,12 +1389,29 @@
                 padding: 2rem 1.5rem;
                 height: auto;
                 width: 100%;
-                background: white;
+                background: transparent !important;
+                box-shadow: none !important;
+                border: none !important;
             }
             
-            /* COMPLETELY HIDE the back div on mobile */
+            /* COMPLETELY HIDE and REMOVE the back div */
             .solution-flip-card .flip-card-back {
                 display: none !important;
+                position: absolute !important;
+                left: -9999px !important;
+                top: -9999px !important;
+                opacity: 0 !important;
+                visibility: hidden !important;
+            }
+            
+            /* Text hierarchy: Header > Description > Bullet points */
+            .solution-flip-card .flip-card-front h3 {
+                font-weight: 700 !important; /* Boldest for header */
+            }
+            
+            .solution-flip-card .flip-card-front .front-description {
+                font-weight: 600 !important; /* Medium bold for description */
+                color: #444 !important;
             }
             
             /* Add bullet points directly after front description using CSS */
@@ -1402,6 +1423,7 @@
                 font-size: 0.9rem;
                 color: #666;
                 line-height: 1.6;
+                font-weight: 400; /* Normal weight for bullet points */
             }
             
             .solution-flip-card:nth-child(2) .flip-card-front::after {
@@ -1412,6 +1434,7 @@
                 font-size: 0.9rem;
                 color: #666;
                 line-height: 1.6;
+                font-weight: 400; /* Normal weight for bullet points */
             }
             
             .solution-flip-card:nth-child(3) .flip-card-front::after {
@@ -1422,6 +1445,7 @@
                 font-size: 0.9rem;
                 color: #666;
                 line-height: 1.6;
+                font-weight: 400; /* Normal weight for bullet points */
             }
             
             .solution-flip-card:hover .flip-card-inner {
@@ -1467,10 +1491,14 @@
                 width: 100%;
                 max-width: 100%;
                 margin-bottom: 0;
+                background: white !important;
+                box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1) !important;
             }
             
             .solution-flip-card .flip-card-front {
                 padding: 1.5rem 1.2rem;
+                background: transparent !important;
+                box-shadow: none !important;
             }
             
             .feature-icon-clean {
@@ -1483,6 +1511,7 @@
             .flip-card-front h3 {
                 font-size: 1rem;
                 margin-bottom: 0.6rem;
+                font-weight: 700 !important; /* Boldest */
             }
             
             .front-description {
@@ -1490,12 +1519,15 @@
                 padding: 0;
                 margin-bottom: 0.8rem;
                 line-height: 1.4;
+                font-weight: 600 !important; /* Medium bold */
+                color: #444 !important;
             }
             
-            /* Smaller bullet points for mobile */
+            /* Smaller bullet points for mobile with normal weight */
             .solution-flip-card .flip-card-front::after {
                 font-size: 0.82rem !important;
                 margin-top: 0.8rem !important;
+                font-weight: 400 !important; /* Normal weight */
             }
             
             .feature-list-clean li {
