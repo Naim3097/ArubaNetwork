@@ -568,8 +568,19 @@
         /* Additional Mobile Override */
         @media (max-width: 480px) {
             /* Hero 1: FORCE move image down - maximum specificity */
+            /* MOBILE HERO - Force Image Down Using Transform */
             .hero .hero-slider .hero-slide-1.hero-slide {
-                background-position: center 120% !important;
+                background-position: center top !important;
+                background-size: auto 120% !important;
+                background-attachment: scroll !important;
+                background-repeat: no-repeat !important;
+                transform: translateY(-80px) !important;
+                overflow: hidden !important;
+            }
+            
+            /* Reset content position to compensate for transform */
+            .hero .hero-slider .hero-slide-1.hero-slide .hero-content {
+                transform: translateY(80px) !important;
             }
             
             .hero-content {
