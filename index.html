@@ -1361,37 +1361,47 @@
                 height: auto;
                 min-height: 280px;
                 max-width: 100%;
-                perspective: none; /* Disable 3D effect on mobile */
+                perspective: none;
+                background: white;
+                border-radius: 15px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+                overflow: hidden;
+                display: block; /* Ensure individual card structure */
+                margin-bottom: 0; /* Remove extra spacing */
             }
             
             .solution-flip-card .flip-card-inner {
-                transform: none !important; /* Always show front */
-                position: relative;
+                transform: none !important;
+                position: static;
                 height: auto;
+                width: 100%;
             }
             
             .solution-flip-card .flip-card-front {
-                position: relative;
+                position: static;
                 transform: none;
                 backface-visibility: visible;
                 display: block;
-                padding: 2rem 1.5rem 1rem 1.5rem;
+                padding: 2rem 1.5rem 0.5rem 1.5rem;
                 height: auto;
+                width: 100%;
+                background: white;
             }
             
             .solution-flip-card .flip-card-back {
-                position: relative;
+                position: static;
                 transform: none;
                 backface-visibility: visible;
                 display: block;
                 margin-top: 0;
-                padding: 0 1.5rem 1.5rem 1.5rem;
-                background: none;
+                padding: 0 1.5rem 2rem 1.5rem;
+                background: white;
                 height: auto;
+                width: 100%;
             }
             
             .solution-flip-card .flip-card-back h3 {
-                display: none; /* Hide the duplicate title */
+                display: none; /* Hide duplicate title */
             }
             
             .solution-flip-card .flip-card-back ul {
@@ -1404,9 +1414,9 @@
                 color: #666;
                 margin-bottom: 0.6rem;
                 line-height: 1.4;
+                list-style: disc;
             }
             
-            /* Completely disable hover on mobile - use touch instead */
             .solution-flip-card:hover .flip-card-inner {
                 transform: none !important;
             }
@@ -1441,21 +1451,23 @@
         @media (max-width: 480px) {
             .todays-solutions-grid {
                 width: 100%;
+                gap: 1.2rem;
             }
             
             .solution-flip-card {
                 height: auto;
-                min-height: 250px;
+                min-height: 240px;
                 width: 100%;
                 max-width: 100%;
+                margin-bottom: 0;
             }
             
             .solution-flip-card .flip-card-front {
-                padding: 1.5rem 1rem 0.5rem 1rem;
+                padding: 1.5rem 1.2rem 0.5rem 1.2rem;
             }
             
             .solution-flip-card .flip-card-back {
-                padding: 0 1rem 1.2rem 1rem;
+                padding: 0 1.2rem 1.5rem 1.2rem;
             }
             
             .feature-icon-clean {
