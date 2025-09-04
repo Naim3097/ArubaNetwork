@@ -976,6 +976,11 @@
                 margin-top: 1.5rem;
                 padding: 0 1.5rem; /* Extra padding on mobile */
             }
+            
+            /* Hide arrow buttons on mobile - touch/swipe only */
+            .cert-nav-btn {
+                display: none !important;
+            }
         }
         
         @media (max-width: 480px) {
@@ -995,11 +1000,7 @@
             }
             
             .cert-nav-btn {
-                width: 35px;
-                height: 35px;
-                font-size: 0.9rem;
-                min-width: 35px; /* Prevent cutoff on smallest screens */
-                min-height: 35px;
+                display: none !important; /* Hide arrows on smallest screens - touch/swipe only */
             }
         }
         
@@ -2692,7 +2693,7 @@
                         <div class="certification-badge fade-in">
                             <img src="assets/images/certifications/HPE Sales Certified - Aruba Products And Solutions.png" 
                                  alt="HPE Sales Certification" class="badge-image">
-                            <h4>HPE Sales Certified</h4>
+                            <h4>Aruba HPE Sales Certified</h4>
                             <p class="text-small">Aruba Products & Solutions</p>
                         </div>
                     </div>
