@@ -1355,7 +1355,6 @@
                 grid-template-columns: 1fr;
                 gap: 1.5rem;
                 margin-top: 2rem;
-                overflow: hidden; /* Prevent extra cards from showing */
             }
             
             .solution-flip-card {
@@ -1397,8 +1396,7 @@
         
         @media (max-width: 480px) {
             .todays-solutions-grid {
-                overflow: hidden; /* Prevent any overflow on smallest screens */
-                width: 100%; /* Constrain width */
+                width: 100%;
             }
             
             .solution-flip-card {
@@ -3693,48 +3691,39 @@
             }, 8000);
         }
         
-        // Flip Cards Touch Functionality for Mobile - CLEAN SOLUTION
+        // Flip Cards Touch Functionality for Mobile - SIMPLE & SAFE SOLUTION
         function initFlipCards() {
             const flipCards = document.querySelectorAll('.solution-flip-card');
+            console.log(`Found ${flipCards.length} flip cards`);
             
-            flipCards.forEach((card, index) => {
-                // Clear any existing event listeners by cloning the element
-                const newCard = card.cloneNode(true);
-                card.parentNode.replaceChild(newCard, card);
-                
-                // Add single, clean event listener
-                newCard.addEventListener('touchstart', function(e) {
-                    e.stopPropagation();
-                    e.preventDefault();
-                    
-                    // Toggle flip on THIS card only
-                    this.classList.toggle('flipped');
-                    console.log(`Card ${index + 1} toggled, flipped: ${this.classList.contains('flipped')}`);
-                }, { passive: false });
-                
-                // Backup click event for tap
-                newCard.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                    e.preventDefault();
-                    
-                    // Only on mobile
-                    if (window.innerWidth <= 768) {
-                        this.classList.toggle('flipped');
-                        console.log(`Card ${index + 1} clicked and toggled`);
-                    }
-                });
-                
-                // Prevent any other touch events
-                newCard.addEventListener('touchmove', function(e) {
-                    e.preventDefault();
-                }, { passive: false });
-                
-                newCard.addEventListener('touchend', function(e) {
-                    e.preventDefault();
-                }, { passive: false });
+            // First ensure all cards are visible (fix fade-in issue)
+            flipCards.forEach(card => {
+                card.classList.add('visible');
             });
             
-            console.log(`Clean initialization of ${flipCards.length} flip cards completed`);
+            flipCards.forEach((card, index) => {
+                console.log(`Setting up card ${index + 1}`);
+                
+                // Simple touch handler - only toggle the specific card
+                function handleTouch(e) {
+                    e.stopPropagation();
+                    e.preventDefault();
+                    
+                    // Only this card toggles
+                    card.classList.toggle('flipped');
+                    console.log(`Card ${index + 1} now flipped: ${card.classList.contains('flipped')}`);
+                }
+                
+                // Remove any existing listeners first (safer than cloning)
+                card.removeEventListener('touchstart', handleTouch);
+                card.removeEventListener('click', handleTouch);
+                
+                // Add fresh listeners
+                card.addEventListener('touchstart', handleTouch, { passive: false });
+                card.addEventListener('click', handleTouch);
+                
+                console.log(`Card ${index + 1} setup complete`);
+            });
         }
         
         // Initialize certification slider when DOM is ready
@@ -3743,14 +3732,11 @@
             
             initCertificationSlider();
             
-            // Initialize flip cards immediately - no delay
-            initFlipCards();
-            
-            // Also try re-initializing after a short delay to ensure DOM is fully ready
+            // Wait a moment then initialize flip cards
             setTimeout(() => {
-                console.log('Re-initializing flip cards...');
+                console.log('Initializing flip cards...');
                 initFlipCards();
-            }, 500);
+            }, 200);
         });
         
         // Contact Form JavaScript
