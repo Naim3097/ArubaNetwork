@@ -1196,13 +1196,16 @@
             cursor: pointer;
         }
         
-        .solution-flip-card:hover .flip-card-inner {
-            transform: rotateY(180deg);
+        /* Desktop hover flip */
+        @media (min-width: 769px) {
+            .solution-flip-card:hover .flip-card-inner {
+                transform: rotateY(180deg);
+            }
         }
         
         /* Mobile touch flip - activated by JavaScript */
         .solution-flip-card.flipped .flip-card-inner {
-            transform: rotateY(180deg);
+            transform: rotateY(180deg) !important;
         }
         
         .flip-card-front, .flip-card-back {
@@ -1352,9 +1355,9 @@
                 max-width: 100%; /* Prevent overflow */
             }
             
-            /* Disable hover on mobile - use touch instead */
+            /* Completely disable hover on mobile - use touch instead */
             .solution-flip-card:hover .flip-card-inner {
-                transform: none;
+                transform: none !important;
             }
             
             .flip-card-front, .flip-card-back {
@@ -3682,49 +3685,56 @@
             }, 8000);
         }
         
-        // Flip Cards Touch Functionality for Mobile
+        // Flip Cards Touch Functionality for Mobile - ROBUST SOLUTION
         function initFlipCards() {
             const flipCards = document.querySelectorAll('.solution-flip-card');
             
-            flipCards.forEach(card => {
-                // Touch events for mobile
+            flipCards.forEach((card, index) => {
+                // Add unique identifier for debugging
+                card.setAttribute('data-card', index + 1);
+                
+                // Simple touch toggle for mobile
+                card.addEventListener('touchstart', function(e) {
+                    e.preventDefault(); // Prevent other touch events
+                    console.log(`Touch started on card ${index + 1}`);
+                    this.classList.toggle('flipped');
+                }, { passive: false });
+                
+                // Prevent scroll interference
+                card.addEventListener('touchmove', function(e) {
+                    e.preventDefault();
+                }, { passive: false });
+                
+                // Alternative: Listen for tap/click events
+                card.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    console.log(`Click on card ${index + 1}`);
+                    this.classList.toggle('flipped');
+                });
+                
+                // Debug: Add visual feedback
+                card.style.border = '2px solid transparent';
                 card.addEventListener('touchstart', function() {
-                    this.classList.add('flipped');
-                }, { passive: true });
-                
-                card.addEventListener('touchend', function() {
-                    // Delay removal to allow for tap recognition
+                    this.style.border = '2px solid red'; // Visual debug
                     setTimeout(() => {
-                        this.classList.remove('flipped');
-                    }, 100);
-                }, { passive: true });
-                
-                // Also handle mouse events for desktop
-                card.addEventListener('mouseenter', function() {
-                    if (window.innerWidth > 768) { // Only on desktop
-                        this.classList.add('flipped');
-                    }
-                });
-                
-                card.addEventListener('mouseleave', function() {
-                    if (window.innerWidth > 768) { // Only on desktop
-                        this.classList.remove('flipped');
-                    }
-                });
-                
-                // Click/tap to toggle
-                card.addEventListener('click', function() {
-                    if (window.innerWidth <= 768) { // Only on mobile/tablet
-                        this.classList.toggle('flipped');
-                    }
+                        this.style.border = '2px solid transparent';
+                    }, 500);
                 });
             });
+            
+            console.log(`Initialized ${flipCards.length} flip cards`);
         }
         
         // Initialize certification slider when DOM is ready
         document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM loaded, initializing components...');
+            
             initCertificationSlider();
-            initFlipCards(); // Initialize flip card touch functionality
+            
+            // Initialize flip cards with delay to ensure DOM is ready
+            setTimeout(() => {
+                initFlipCards(); // Initialize flip card touch functionality
+            }, 100);
         });
         
         // Contact Form JavaScript
