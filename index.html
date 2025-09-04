@@ -1206,6 +1206,14 @@
         /* Mobile touch flip - activated by JavaScript */
         .solution-flip-card.flipped .flip-card-inner {
             transform: rotateY(180deg) !important;
+            transition: transform 0.3s ease !important; /* Faster transition for touch */
+        }
+        
+        /* Ensure mobile cards don't have any hover states */
+        @media (max-width: 768px) {
+            .solution-flip-card .flip-card-inner {
+                transition: transform 0.3s ease; /* Faster on mobile */
+            }
         }
         
         .flip-card-front, .flip-card-back {
@@ -3685,44 +3693,48 @@
             }, 8000);
         }
         
-        // Flip Cards Touch Functionality for Mobile - ROBUST SOLUTION
+        // Flip Cards Touch Functionality for Mobile - CLEAN SOLUTION
         function initFlipCards() {
             const flipCards = document.querySelectorAll('.solution-flip-card');
             
             flipCards.forEach((card, index) => {
-                // Add unique identifier for debugging
-                card.setAttribute('data-card', index + 1);
+                // Clear any existing event listeners by cloning the element
+                const newCard = card.cloneNode(true);
+                card.parentNode.replaceChild(newCard, card);
                 
-                // Simple touch toggle for mobile
-                card.addEventListener('touchstart', function(e) {
-                    e.preventDefault(); // Prevent other touch events
-                    console.log(`Touch started on card ${index + 1}`);
+                // Add single, clean event listener
+                newCard.addEventListener('touchstart', function(e) {
+                    e.stopPropagation();
+                    e.preventDefault();
+                    
+                    // Toggle flip on THIS card only
                     this.classList.toggle('flipped');
+                    console.log(`Card ${index + 1} toggled, flipped: ${this.classList.contains('flipped')}`);
                 }, { passive: false });
                 
-                // Prevent scroll interference
-                card.addEventListener('touchmove', function(e) {
+                // Backup click event for tap
+                newCard.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    e.preventDefault();
+                    
+                    // Only on mobile
+                    if (window.innerWidth <= 768) {
+                        this.classList.toggle('flipped');
+                        console.log(`Card ${index + 1} clicked and toggled`);
+                    }
+                });
+                
+                // Prevent any other touch events
+                newCard.addEventListener('touchmove', function(e) {
                     e.preventDefault();
                 }, { passive: false });
                 
-                // Alternative: Listen for tap/click events
-                card.addEventListener('click', function(e) {
+                newCard.addEventListener('touchend', function(e) {
                     e.preventDefault();
-                    console.log(`Click on card ${index + 1}`);
-                    this.classList.toggle('flipped');
-                });
-                
-                // Debug: Add visual feedback
-                card.style.border = '2px solid transparent';
-                card.addEventListener('touchstart', function() {
-                    this.style.border = '2px solid red'; // Visual debug
-                    setTimeout(() => {
-                        this.style.border = '2px solid transparent';
-                    }, 500);
-                });
+                }, { passive: false });
             });
             
-            console.log(`Initialized ${flipCards.length} flip cards`);
+            console.log(`Clean initialization of ${flipCards.length} flip cards completed`);
         }
         
         // Initialize certification slider when DOM is ready
@@ -3731,10 +3743,14 @@
             
             initCertificationSlider();
             
-            // Initialize flip cards with delay to ensure DOM is ready
+            // Initialize flip cards immediately - no delay
+            initFlipCards();
+            
+            // Also try re-initializing after a short delay to ensure DOM is fully ready
             setTimeout(() => {
-                initFlipCards(); // Initialize flip card touch functionality
-            }, 100);
+                console.log('Re-initializing flip cards...');
+                initFlipCards();
+            }, 500);
         });
         
         // Contact Form JavaScript
