@@ -2532,6 +2532,41 @@
             }
         }
         
+        /* Mobile Text Alignment - Center align specific sections on mobile only */
+        @media (max-width: 768px) {
+            /* Free Wi-Fi Assessment Section */
+            #assessment .section-title,
+            #assessment p,
+            #assessment .btn {
+                text-align: center !important;
+            }
+            
+            #assessment .grid {
+                text-align: center;
+            }
+            
+            /* Strengthen Your Security Framework Section */
+            .security-section .section-title,
+            .security-section p,
+            .security-section .btn {
+                text-align: center !important;
+            }
+            
+            /* Smart Features For Smart Networking Section */
+            .smart-features-section .section-title,
+            .smart-features-section p,
+            .smart-features-section .btn {
+                text-align: center !important;
+            }
+            
+            /* We are the Authorised Reseller Section */
+            .reseller-section .section-title,
+            .reseller-section p,
+            .reseller-section .btn {
+                text-align: center !important;
+            }
+        }
+        
         /* Contact Form Mobile Optimization */
         @media (max-width: 768px) {
             .contact-form {
@@ -2945,7 +2980,7 @@
     </section>
 
     <!-- Strengthen Your Security Framework Section -->
-    <section class="section">
+    <section class="section security-section">
         <div class="container">
             <div class="grid grid-2 security-framework-section" style="align-items: center;">
                 <div class="fade-in">
@@ -2968,9 +3003,9 @@
     </section>
 
     <!-- Smart Features For Smart Networking Section -->
-    <section class="section bg-gray">
+    <section class="section bg-gray smart-features-section">
         <div class="container">
-            <div class="grid grid-2 smart-features-section" style="align-items: center;">
+            <div class="grid grid-2" style="align-items: center;">
                 <div class="fade-in">
                     <div class="smart-features-image">
                         <img src="assets/images/graphics/Smart Features For Smart Networking.png" alt="Smart Features For Smart Networking" class="smart-features-graphic">
@@ -3021,9 +3056,9 @@
     </section>
 
     <!-- Authorized Reseller Section -->
-    <section class="section bg-gray">
+    <section class="section bg-gray reseller-section">
         <div class="container">
-            <div class="grid grid-2 authorized-reseller-section" style="align-items: center;">
+            <div class="grid grid-2" style="align-items: center;">
                 <div class="fade-in">
                     <h2 class="section-title text-left">We are the Authorised Reseller for Aruba Networks Solution</h2>
                     <p style="font-size: var(--text-body-large); margin-bottom: var(--spacing-lg);">
