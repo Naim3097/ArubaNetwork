@@ -1200,6 +1200,11 @@
             transform: rotateY(180deg);
         }
         
+        /* Mobile touch flip - activated by JavaScript */
+        .solution-flip-card.flipped .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+        
         .flip-card-front, .flip-card-back {
             position: absolute;
             width: 100%;
@@ -1339,10 +1344,17 @@
                 grid-template-columns: 1fr;
                 gap: 1.5rem;
                 margin-top: 2rem;
+                overflow: hidden; /* Prevent extra cards from showing */
             }
             
             .solution-flip-card {
                 height: 280px;
+                max-width: 100%; /* Prevent overflow */
+            }
+            
+            /* Disable hover on mobile - use touch instead */
+            .solution-flip-card:hover .flip-card-inner {
+                transform: none;
             }
             
             .flip-card-front, .flip-card-back {
@@ -1373,8 +1385,15 @@
         }
         
         @media (max-width: 480px) {
+            .todays-solutions-grid {
+                overflow: hidden; /* Prevent any overflow on smallest screens */
+                width: 100%; /* Constrain width */
+            }
+            
             .solution-flip-card {
                 height: 260px;
+                width: 100%; /* Full width constraint */
+                max-width: 100%; /* No overflow */
             }
             
             .flip-card-front, .flip-card-back {
@@ -3663,9 +3682,49 @@
             }, 8000);
         }
         
+        // Flip Cards Touch Functionality for Mobile
+        function initFlipCards() {
+            const flipCards = document.querySelectorAll('.solution-flip-card');
+            
+            flipCards.forEach(card => {
+                // Touch events for mobile
+                card.addEventListener('touchstart', function() {
+                    this.classList.add('flipped');
+                }, { passive: true });
+                
+                card.addEventListener('touchend', function() {
+                    // Delay removal to allow for tap recognition
+                    setTimeout(() => {
+                        this.classList.remove('flipped');
+                    }, 100);
+                }, { passive: true });
+                
+                // Also handle mouse events for desktop
+                card.addEventListener('mouseenter', function() {
+                    if (window.innerWidth > 768) { // Only on desktop
+                        this.classList.add('flipped');
+                    }
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    if (window.innerWidth > 768) { // Only on desktop
+                        this.classList.remove('flipped');
+                    }
+                });
+                
+                // Click/tap to toggle
+                card.addEventListener('click', function() {
+                    if (window.innerWidth <= 768) { // Only on mobile/tablet
+                        this.classList.toggle('flipped');
+                    }
+                });
+            });
+        }
+        
         // Initialize certification slider when DOM is ready
         document.addEventListener('DOMContentLoaded', function() {
             initCertificationSlider();
+            initFlipCards(); // Initialize flip card touch functionality
         });
         
         // Contact Form JavaScript
