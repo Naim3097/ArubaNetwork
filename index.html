@@ -2590,6 +2590,38 @@
                 font-size: 0.9rem;
                 line-height: 1.2;
             }
+            
+            /* We are the Authorised Reseller Section - STANDARDIZE with Smart Features */
+            .reseller-service-item {
+                display: flex;
+                align-items: center;
+                gap: 0.75rem !important; /* Same as feature-item */
+                margin-bottom: 0.6rem !important; /* Same as feature-item */
+                padding: 0.3rem 0 !important; /* Same as feature-item */
+                transition: all 0.3s ease;
+                border-radius: 6px;
+            }
+            
+            .reseller-service-item .check-icon {
+                width: 16px !important; /* Same as feature-check */
+                height: 16px !important; /* Same as feature-check */
+                font-size: 10px !important; /* Same as feature-check */
+                flex-shrink: 0;
+            }
+            
+            .reseller-service-item span {
+                font-size: 0.9rem !important; /* Same as feature-item span */
+                line-height: 1.2 !important; /* Same as feature-item span */
+            }
+            
+            /* Center align buttons for mobile */
+            .smart-features-section .btn,
+            .reseller-section .btn {
+                display: block !important;
+                margin: var(--spacing-xl) auto 0 auto !important;
+                text-align: center !important;
+                width: fit-content !important;
+            }
         }
         
         /* Free Wi-Fi Assessment Section */
@@ -2663,6 +2695,34 @@
             
             .wifi-assessment-graphic {
                 max-height: 220px;
+            }
+            
+            /* Smaller mobile - ensure standardized spacing */
+            .feature-item,
+            .reseller-service-item {
+                margin-bottom: 0.5rem !important;
+                gap: 0.6rem !important;
+                padding: 0.25rem 0 !important;
+            }
+            
+            .feature-check,
+            .reseller-service-item .check-icon {
+                width: 14px !important;
+                height: 14px !important;
+                font-size: 9px !important;
+            }
+            
+            .feature-item span,
+            .reseller-service-item span {
+                font-size: 0.85rem !important;
+                line-height: 1.3 !important;
+            }
+            
+            /* Button centering for smallest screens */
+            .smart-features-section .btn,
+            .reseller-section .btn {
+                font-size: 0.9rem !important;
+                padding: 0.8rem 1.5rem !important;
             }
         }
         
