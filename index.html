@@ -1366,8 +1366,8 @@
                 border-radius: 15px;
                 box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
                 overflow: hidden;
-                display: block; /* Ensure individual card structure */
-                margin-bottom: 0; /* Remove extra spacing */
+                display: block;
+                margin-bottom: 0;
             }
             
             .solution-flip-card .flip-card-inner {
@@ -1382,39 +1382,46 @@
                 transform: none;
                 backface-visibility: visible;
                 display: block;
-                padding: 2rem 1.5rem 0.5rem 1.5rem;
+                padding: 2rem 1.5rem;
                 height: auto;
                 width: 100%;
                 background: white;
             }
             
+            /* COMPLETELY HIDE the back div on mobile */
             .solution-flip-card .flip-card-back {
-                position: static;
-                transform: none;
-                backface-visibility: visible;
+                display: none !important;
+            }
+            
+            /* Add bullet points directly after front description using CSS */
+            .solution-flip-card:nth-child(1) .flip-card-front::after {
+                content: "• High Performance Connectivity\A• Zero Touch Provisioning\A• Network Optimization\A• Routine Tasks Acceleration";
+                white-space: pre-line;
                 display: block;
-                margin-top: 0;
-                padding: 0 1.5rem 2rem 1.5rem;
-                background: white;
-                height: auto;
-                width: 100%;
-            }
-            
-            .solution-flip-card .flip-card-back h3 {
-                display: none; /* Hide duplicate title */
-            }
-            
-            .solution-flip-card .flip-card-back ul {
-                margin: 1rem 0 0 0;
-                padding-left: 1.2rem;
-            }
-            
-            .solution-flip-card .flip-card-back li {
+                margin-top: 1rem;
                 font-size: 0.9rem;
                 color: #666;
-                margin-bottom: 0.6rem;
-                line-height: 1.4;
-                list-style: disc;
+                line-height: 1.6;
+            }
+            
+            .solution-flip-card:nth-child(2) .flip-card-front::after {
+                content: "• Intrusion Detection and Prevention\A• Unified Policy Enforcement Firewall\A• Web Content Filtering";
+                white-space: pre-line;
+                display: block;
+                margin-top: 1rem;
+                font-size: 0.9rem;
+                color: #666;
+                line-height: 1.6;
+            }
+            
+            .solution-flip-card:nth-child(3) .flip-card-front::after {
+                content: "• Built-to-Scale\A• Versatile Deployment\A• Made for Any Environment\A• Single Pane Glass Management";
+                white-space: pre-line;
+                display: block;
+                margin-top: 1rem;
+                font-size: 0.9rem;
+                color: #666;
+                line-height: 1.6;
             }
             
             .solution-flip-card:hover .flip-card-inner {
@@ -1463,11 +1470,7 @@
             }
             
             .solution-flip-card .flip-card-front {
-                padding: 1.5rem 1.2rem 0.5rem 1.2rem;
-            }
-            
-            .solution-flip-card .flip-card-back {
-                padding: 0 1.2rem 1.5rem 1.2rem;
+                padding: 1.5rem 1.2rem;
             }
             
             .feature-icon-clean {
@@ -1489,9 +1492,10 @@
                 line-height: 1.4;
             }
             
-            .solution-flip-card .flip-card-back li {
-                font-size: 0.82rem;
-                margin-bottom: 0.5rem;
+            /* Smaller bullet points for mobile */
+            .solution-flip-card .flip-card-front::after {
+                font-size: 0.82rem !important;
+                margin-top: 0.8rem !important;
             }
             
             .feature-list-clean li {
