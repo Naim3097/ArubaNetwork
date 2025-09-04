@@ -567,8 +567,9 @@
         
         /* Additional Mobile Override */
         @media (max-width: 480px) {
-            /* Hero 1: FORCE move image down - maximum specificity */
+            /* Hero 1: Use mobile-specific cropped image for mobile devices */
             .hero .hero-slider .hero-slide-1.hero-slide {
+                background-image: url('assets/images/graphics/Hero Section 1 Mobile.png') !important;
                 background-position: center center !important;
                 background-size: cover !important;
                 background-attachment: scroll !important;
