@@ -156,9 +156,19 @@
             padding: var(--spacing-3xl) 0;
         }
         
+        /* Reduce padding between second and third sections (desktop only) */
+        #assessment {
+            padding-top: var(--spacing-lg) !important;
+        }
+        
         @media (max-width: 768px) {
             .section {
                 padding: var(--spacing-xl) 0;
+            }
+            
+            /* Reset mobile padding for assessment section */
+            #assessment {
+                padding-top: var(--spacing-xl) !important;
             }
         }
         
@@ -274,8 +284,31 @@
             .mobile-menu-toggle {
                 display: block;
             }
+            
+            /* Mobile-only navbar customizations */
+            .navbar-content {
+                justify-content: center; /* Center the logo */
+            }
+            
+            .logo img {
+                height: 35px !important; /* Reduce logo size */
+            }
+            
+            .nav-menu {
+                display: none !important; /* Hide navigation menu completely */
+            }
+            
+            .mobile-menu-toggle {
+                display: none !important; /* Hide hamburger button completely */
+            }
         }
         
+        /* Background color variations for visual flow */
+        .bg-subtle-1 { background-color: #fafbfc; }
+        .bg-subtle-2 { background-color: #f8f9fa; }
+        .bg-subtle-3 { background-color: #f6f7f8; }
+        .bg-subtle-4 { background-color: #f4f5f6; }
+
         /* Hero Section */
         .hero {
             min-height: 100vh;
@@ -381,8 +414,8 @@
         
         /* Hero Slide Backgrounds */
         .hero-slide-1 {
-            background-image: url('assets/images/graphics/Hero Section 1 (1).png');
-            background-position: center 0% !important;
+            background-image: url('assets/images/graphics/Hero Section 1.png');
+            background-position: center 0%; /* Remove !important to allow mobile override */
         }
         
         .hero-slide-2 {
@@ -491,11 +524,8 @@
             }
         }
         
-        /* Mobile Hero Section 1 Override */
+        /* Mobile Hero Section - CLEAN SINGLE RULE */
         @media (max-width: 768px) {
-            .hero-slider .hero-slide-1 {
-                background-position: center 40% !important;
-            }
             
             .hero-content {
                 padding: 0 2rem;
@@ -549,23 +579,29 @@
                 width: 8px;
                 height: 8px;
             }
-            
-            /* Mobile-specific positioning for Hero Section 1 */
-            .hero-slider .hero-slide-1 {
-                background-position: center 60% !important;
-            }
         }
         
         /* Additional Mobile Override */
         @media (max-width: 480px) {
-            .hero-slider .hero-slide-1 {
-                background-position: center 70% !important;
+            /* Hero 1: Use mobile-specific cropped image for mobile devices */
+            .hero .hero-slider .hero-slide-1.hero-slide {
+                background-image: url('assets/images/graphics/Hero Section 1.png') !important;
+                background-position: center center !important;
+                background-size: cover !important;
+                background-attachment: scroll !important;
             }
             
             .hero-content {
                 padding: 0 1.5rem;
                 max-width: 95%;
                 top: 40%;
+            }
+            
+            /* Banner 1 ONLY - Move text to lower end of section */
+            .hero-slide-1 .hero-content {
+                top: 65% !important;
+                bottom: auto !important;
+                transform: translateY(-50%) !important;
             }
             
             .hero-header {
@@ -579,14 +615,32 @@
                 line-height: 1.3;
             }
             
+            /* Hero 2 & 3: Much larger badges (50% bigger than current), positioned higher */
             .hero-badge {
-                right: 1rem;
-                bottom: 1rem;
+                right: auto;
+                left: 50%;
+                bottom: 4rem; /* Higher than previous 2rem */
                 top: auto;
-                transform: none;
-                max-width: 48px;
-                max-height: 48px;
-                opacity: 0.85;
+                transform: translateX(-50%);
+                max-width: 108px; /* 50% larger than previous 72px */
+                max-height: 108px;
+                opacity: 0.9;
+            }
+            
+            /* Hero 2: Badge MUCH larger and positioned lower */
+            .hero-slide-2 .hero-badge {
+                max-width: 140px; /* Significantly larger - 30% bigger than 108px */
+                max-height: 140px;
+                bottom: 2.5rem; /* Lowered from 4rem default */
+            }
+            
+            /* Hide navigation arrows on mobile */
+            .hero-nav {
+                display: none !important;
+            }
+            
+            .hero-nav-prev, .hero-nav-next {
+                display: none !important;
             }
         }
         
@@ -754,6 +808,8 @@
         /* Certification Badge Styles */
         .certifications {
             background: linear-gradient(135deg, var(--color-primary-50), var(--color-secondary-50));
+            padding-bottom: 6rem; /* Add extra gap after achievements section */
+            padding-top: 3rem; /* Reduce top padding */
         }
         
         .certifications-slider {
@@ -789,6 +845,8 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            min-height: 280px; /* Force consistent card height */
+            justify-content: space-between; /* Distribute content evenly */
         }
         
         .certification-badge:hover {
@@ -808,13 +866,30 @@
         }
         
         .badge-image {
-            width: 120px;
-            height: 120px;
+            width: 120px !important;
+            height: 120px !important;
             object-fit: contain;
             margin-bottom: 1.5rem;
             border-radius: 8px;
             background: #f8f9fa;
             padding: 10px;
+            display: block; /* Ensure consistent display */
+            flex-shrink: 0; /* Prevent image from shrinking */
+        }
+        
+        /* Ensure consistent text spacing in cards */
+        .certification-badge h4 {
+            margin-bottom: 0.5rem;
+            flex-shrink: 0;
+            min-height: 2.5rem; /* Consistent title height */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .certification-badge .text-small {
+            margin-top: auto; /* Push to bottom */
+            flex-shrink: 0;
         }
         
         .certification-controls {
@@ -823,6 +898,7 @@
             align-items: center;
             gap: 1rem;
             margin-top: 2rem;
+            padding: 0 1rem; /* Add padding to prevent button cutoff */
         }
         
         .cert-nav-btn {
@@ -832,7 +908,7 @@
             border-radius: 50%;
             width: 45px;
             height: 45px;
-            display: flex;
+            display: flex !important; /* Force visibility */
             align-items: center;
             justify-content: center;
             cursor: pointer;
@@ -841,6 +917,9 @@
             font-weight: 600;
             backdrop-filter: blur(10px);
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            flex-shrink: 0; /* Prevent shrinking that causes cutoff */
+            min-width: 45px; /* Ensure minimum width */
+            min-height: 45px; /* Ensure minimum height */
         }
         
         .cert-nav-btn:hover {
@@ -852,12 +931,13 @@
         }
         
         .cert-nav-btn:disabled {
-            background: rgba(255, 255, 255, 0.5);
-            color: var(--color-gray-400);
-            border-color: rgba(var(--color-gray-400-rgb), 0.3);
-            cursor: not-allowed;
+            background: rgba(255, 255, 255, 0.7) !important;
+            color: var(--color-primary) !important;
+            border-color: rgba(var(--color-primary-rgb), 0.3) !important;
+            cursor: pointer !important; /* Keep clickable */
             transform: none;
-            box-shadow: none;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            opacity: 1 !important; /* Ensure visibility */
         }
         
         .cert-indicators {
@@ -888,6 +968,11 @@
         }
         
         @media (max-width: 768px) {
+            .certifications {
+                padding-bottom: 4rem; /* Reduced gap on mobile */
+                padding-top: 2rem; /* Reduced padding on mobile */
+            }
+            
             .certifications-slide {
                 grid-template-columns: 1fr;
                 gap: 1.5rem;
@@ -898,17 +983,20 @@
                 padding: 1.5rem 1rem;
                 margin: 0 auto;
                 max-width: 300px;
+                min-height: 250px; /* Consistent mobile card height */
             }
             
             .badge-image {
-                width: 90px;
-                height: 90px;
+                width: 120px !important; /* Force consistent size on mobile too */
+                height: 120px !important;
             }
             
             .cert-nav-btn {
                 width: 40px;
                 height: 40px;
                 font-size: 1rem;
+                min-width: 40px; /* Prevent mobile cutoff */
+                min-height: 40px;
             }
             
             .cert-indicator {
@@ -919,10 +1007,21 @@
             .certification-controls {
                 gap: 0.8rem;
                 margin-top: 1.5rem;
+                padding: 0 1.5rem; /* Extra padding on mobile */
+            }
+            
+            /* Hide arrow buttons on mobile - touch/swipe only */
+            .cert-nav-btn {
+                display: none !important;
             }
         }
         
         @media (max-width: 480px) {
+            .certifications {
+                padding-bottom: 3rem; /* Further reduced on smallest screens */
+                padding-top: 1.5rem;
+            }
+            
             .certifications-slide {
                 gap: 1rem;
                 padding: 0 0.25rem;
@@ -930,17 +1029,16 @@
             
             .certification-badge {
                 padding: 1rem 0.8rem;
+                min-height: 220px; /* Consistent small mobile card height */
             }
             
             .badge-image {
-                width: 80px;
-                height: 80px;
+                width: 120px !important; /* Keep consistent size even on smallest screens */
+                height: 120px !important;
             }
             
             .cert-nav-btn {
-                width: 35px;
-                height: 35px;
-                font-size: 0.9rem;
+                display: none !important; /* Hide arrows on smallest screens - touch/swipe only */
             }
         }
         
@@ -1124,8 +1222,24 @@
             cursor: pointer;
         }
         
-        .solution-flip-card:hover .flip-card-inner {
-            transform: rotateY(180deg);
+        /* Desktop hover flip */
+        @media (min-width: 769px) {
+            .solution-flip-card:hover .flip-card-inner {
+                transform: rotateY(180deg);
+            }
+        }
+        
+        /* Mobile touch flip - activated by JavaScript */
+        .solution-flip-card.flipped .flip-card-inner {
+            transform: rotateY(180deg) !important;
+            transition: transform 0.3s ease !important; /* Faster transition for touch */
+        }
+        
+        /* Ensure mobile cards don't have any hover states */
+        @media (max-width: 768px) {
+            .solution-flip-card .flip-card-inner {
+                transition: transform 0.3s ease; /* Faster on mobile */
+            }
         }
         
         .flip-card-front, .flip-card-back {
@@ -1270,7 +1384,98 @@
             }
             
             .solution-flip-card {
-                height: 280px;
+                height: auto;
+                min-height: 280px;
+                max-width: 100%;
+                perspective: none;
+                background: white;
+                border-radius: 15px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+                overflow: hidden;
+                display: block;
+                margin-bottom: 0;
+                position: relative;
+                z-index: 1;
+            }
+            
+            .solution-flip-card .flip-card-inner {
+                transform: none !important;
+                position: static;
+                height: auto;
+                width: 100%;
+                background: none !important;
+                box-shadow: none !important;
+            }
+            
+            .solution-flip-card .flip-card-front {
+                position: static;
+                transform: none;
+                backface-visibility: visible;
+                display: block;
+                padding: 2rem 1.5rem;
+                height: auto;
+                width: 100%;
+                background: transparent !important;
+                box-shadow: none !important;
+                border: none !important;
+            }
+            
+            /* COMPLETELY HIDE and REMOVE the back div */
+            .solution-flip-card .flip-card-back {
+                display: none !important;
+                position: absolute !important;
+                left: -9999px !important;
+                top: -9999px !important;
+                opacity: 0 !important;
+                visibility: hidden !important;
+            }
+            
+            /* Text hierarchy: Header > Description > Bullet points */
+            .solution-flip-card .flip-card-front h3 {
+                font-weight: 700 !important; /* Boldest for header */
+            }
+            
+            .solution-flip-card .flip-card-front .front-description {
+                font-weight: 600 !important; /* Medium bold for description */
+                color: #444 !important;
+            }
+            
+            /* Add bullet points directly after front description using CSS */
+            .solution-flip-card:nth-child(1) .flip-card-front::after {
+                content: "• High Performance Connectivity\A• Zero Touch Provisioning\A• Network Optimization\A• Routine Tasks Acceleration";
+                white-space: pre-line;
+                display: block;
+                margin-top: 1rem;
+                font-size: 0.9rem;
+                color: #666;
+                line-height: 1.6;
+                font-weight: 400; /* Normal weight for bullet points */
+            }
+            
+            .solution-flip-card:nth-child(2) .flip-card-front::after {
+                content: "• Intrusion Detection and Prevention\A• Unified Policy Enforcement Firewall\A• Web Content Filtering";
+                white-space: pre-line;
+                display: block;
+                margin-top: 1rem;
+                font-size: 0.9rem;
+                color: #666;
+                line-height: 1.6;
+                font-weight: 400; /* Normal weight for bullet points */
+            }
+            
+            .solution-flip-card:nth-child(3) .flip-card-front::after {
+                content: "• Built-to-Scale\A• Versatile Deployment\A• Made for Any Environment\A• Single Pane Glass Management";
+                white-space: pre-line;
+                display: block;
+                margin-top: 1rem;
+                font-size: 0.9rem;
+                color: #666;
+                line-height: 1.6;
+                font-weight: 400; /* Normal weight for bullet points */
+            }
+            
+            .solution-flip-card:hover .flip-card-inner {
+                transform: none !important;
             }
             
             .flip-card-front, .flip-card-back {
@@ -1301,27 +1506,54 @@
         }
         
         @media (max-width: 480px) {
-            .solution-flip-card {
-                height: 260px;
+            .todays-solutions-grid {
+                width: 100%;
+                gap: 1.2rem;
             }
             
-            .flip-card-front, .flip-card-back {
-                padding: 1rem 0.75rem;
+            .solution-flip-card {
+                height: auto;
+                min-height: 240px;
+                width: 100%;
+                max-width: 100%;
+                margin-bottom: 0;
+                background: white !important;
+                box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1) !important;
+            }
+            
+            .solution-flip-card .flip-card-front {
+                padding: 1.5rem 1.2rem;
+                background: transparent !important;
+                box-shadow: none !important;
             }
             
             .feature-icon-clean {
-                width: 55px;
-                height: 55px;
-                font-size: 22px;
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+                margin-bottom: 1rem;
             }
             
-            .flip-card-front h3, .flip-card-back h3 {
+            .flip-card-front h3 {
                 font-size: 1rem;
+                margin-bottom: 0.6rem;
+                font-weight: 700 !important; /* Boldest */
             }
             
             .front-description {
-                font-size: 0.8rem;
+                font-size: 0.85rem;
                 padding: 0;
+                margin-bottom: 0.8rem;
+                line-height: 1.4;
+                font-weight: 600 !important; /* Medium bold */
+                color: #444 !important;
+            }
+            
+            /* Smaller bullet points for mobile with normal weight */
+            .solution-flip-card .flip-card-front::after {
+                font-size: 0.82rem !important;
+                margin-top: 0.8rem !important;
+                font-weight: 400 !important; /* Normal weight */
             }
             
             .feature-list-clean li {
@@ -2384,6 +2616,38 @@
                 font-size: 0.9rem;
                 line-height: 1.2;
             }
+            
+            /* We are the Authorised Reseller Section - STANDARDIZE with Smart Features */
+            .reseller-service-item {
+                display: flex;
+                align-items: center;
+                gap: 0.75rem !important; /* Same as feature-item */
+                margin-bottom: 0.6rem !important; /* Same as feature-item */
+                padding: 0.3rem 0 !important; /* Same as feature-item */
+                transition: all 0.3s ease;
+                border-radius: 6px;
+            }
+            
+            .reseller-service-item .check-icon {
+                width: 16px !important; /* Same as feature-check */
+                height: 16px !important; /* Same as feature-check */
+                font-size: 10px !important; /* Same as feature-check */
+                flex-shrink: 0;
+            }
+            
+            .reseller-service-item span {
+                font-size: 0.9rem !important; /* Same as feature-item span */
+                line-height: 1.2 !important; /* Same as feature-item span */
+            }
+            
+            /* Center align buttons for mobile */
+            .smart-features-section .btn,
+            .reseller-section .btn {
+                display: block !important;
+                margin: var(--spacing-xl) auto 0 auto !important;
+                text-align: center !important;
+                width: fit-content !important;
+            }
         }
         
         /* Free Wi-Fi Assessment Section */
@@ -2458,6 +2722,70 @@
             .wifi-assessment-graphic {
                 max-height: 220px;
             }
+            
+            /* Smaller mobile - ensure standardized spacing */
+            .feature-item,
+            .reseller-service-item {
+                margin-bottom: 0.5rem !important;
+                gap: 0.6rem !important;
+                padding: 0.25rem 0 !important;
+            }
+            
+            .feature-check,
+            .reseller-service-item .check-icon {
+                width: 14px !important;
+                height: 14px !important;
+                font-size: 9px !important;
+            }
+            
+            .feature-item span,
+            .reseller-service-item span {
+                font-size: 0.85rem !important;
+                line-height: 1.3 !important;
+            }
+            
+            /* Button centering for smallest screens */
+            .smart-features-section .btn,
+            .reseller-section .btn {
+                font-size: 0.9rem !important;
+                padding: 0.8rem 1.5rem !important;
+            }
+        }
+        
+        /* Mobile Text Alignment - Center align specific sections on mobile only */
+        @media (max-width: 768px) {
+            /* Free Wi-Fi Assessment Section */
+            #assessment .section-title,
+            #assessment p,
+            #assessment .btn {
+                text-align: center !important;
+            }
+            
+            #assessment .grid {
+                text-align: center;
+            }
+            
+            /* Strengthen Your Security Framework Section */
+            .security-section .section-title,
+            .security-section h3,
+            .security-section p,
+            .security-section .btn {
+                text-align: center !important;
+            }
+            
+            /* Smart Features For Smart Networking Section */
+            .smart-features-section .section-title,
+            .smart-features-section p,
+            .smart-features-section .btn {
+                text-align: center !important;
+            }
+            
+            /* We are the Authorised Reseller Section */
+            .reseller-section .section-title,
+            .reseller-section p,
+            .reseller-section .btn {
+                text-align: center !important;
+            }
         }
         
         /* Contact Form Mobile Optimization */
@@ -2502,7 +2830,6 @@
                     <li><a href="#assessment">Free Assessment</a></li>
                     <li><a href="#todays-solutions">Solutions</a></li>
                     <li><a href="#transformation">Transformation</a></li>
-                    <li><a href="#clients">Clients</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
                 <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle mobile menu">
@@ -2555,7 +2882,7 @@
     </section>
 
     <!-- Our Aruba Achievements (Certifications) -->
-    <section class="section certifications" id="certifications">
+    <section class="section certifications bg-subtle-1" id="certifications">
         <div class="container">
             <div class="section-header fade-in">
                 <h2 class="section-title">Our Aruba Achievements</h2>
@@ -2633,7 +2960,7 @@
                         <div class="certification-badge fade-in">
                             <img src="assets/images/certifications/HPE Sales Certified - Aruba Products And Solutions.png" 
                                  alt="HPE Sales Certification" class="badge-image">
-                            <h4>HPE Sales Certified</h4>
+                            <h4>Aruba HPE Sales Certified</h4>
                             <p class="text-small">Aruba Products & Solutions</p>
                         </div>
                     </div>
@@ -2653,7 +2980,7 @@
     </section>
 
     <!-- Free Wi-Fi Assessment Section -->
-    <section class="section" id="assessment">
+    <section class="section bg-subtle-2" id="assessment">
         <div class="container">
             <div class="grid grid-2 wifi-assessment-section" style="align-items: center;">
                 <div class="fade-in">
@@ -2754,7 +3081,7 @@
     </section>
 
     <!-- Business Transformation Section -->
-    <section class="section" id="transformation">
+    <section class="section bg-subtle-3" id="transformation">
         <div class="container">
             <div class="section-header fade-in">
                 <h2 class="section-title">Your Business Transformation is As Easy As…</h2>
@@ -2799,7 +3126,7 @@
     </section>
 
     <!-- End-to-End Network Solutions Section -->
-    <section class="section bg-gray">
+    <section class="section bg-subtle-1">
         <div class="container">
             <div class="section-header fade-in">
                 <h2 class="section-title">End-To-End Network Solutions</h2>
@@ -2873,7 +3200,7 @@
     </section>
 
     <!-- Strengthen Your Security Framework Section -->
-    <section class="section">
+    <section class="section bg-subtle-2 security-section">
         <div class="container">
             <div class="grid grid-2 security-framework-section" style="align-items: center;">
                 <div class="fade-in">
@@ -2896,9 +3223,9 @@
     </section>
 
     <!-- Smart Features For Smart Networking Section -->
-    <section class="section bg-gray">
+    <section class="section bg-subtle-3 smart-features-section">
         <div class="container">
-            <div class="grid grid-2 smart-features-section" style="align-items: center;">
+            <div class="grid grid-2" style="align-items: center;">
                 <div class="fade-in">
                     <div class="smart-features-image">
                         <img src="assets/images/graphics/Smart Features For Smart Networking.png" alt="Smart Features For Smart Networking" class="smart-features-graphic">
@@ -2949,9 +3276,9 @@
     </section>
 
     <!-- Authorized Reseller Section -->
-    <section class="section bg-gray">
+    <section class="section bg-subtle-4 reseller-section">
         <div class="container">
-            <div class="grid grid-2 authorized-reseller-section" style="align-items: center;">
+            <div class="grid grid-2" style="align-items: center;">
                 <div class="fade-in">
                     <h2 class="section-title text-left">We are the Authorised Reseller for Aruba Networks Solution</h2>
                     <p style="font-size: var(--text-body-large); margin-bottom: var(--spacing-lg);">
@@ -2985,66 +3312,6 @@
                     <div class="authorized-reseller-image">
                         <img src="assets/images/graphics/We are the Authorised Reseller for Aruba Networks Solution.png" alt="Authorised Reseller for Aruba Networks Solution" class="reseller-graphic">
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Our Aruba Clientele (Client Showcase) -->
-    <section class="section bg-gray" id="clients">
-        <div class="container">
-            <div class="section-header fade-in">
-                <h2 class="section-title">Our Aruba Clientele</h2>
-                <p class="section-subtitle">
-                    We proudly serve enterprise clients across education, finance, energy, and technology sectors
-                </p>
-            </div>
-            
-            <div class="clients-grid">
-                <div class="client-logo fade-in stagger-1">
-                    <img src="assets/images/clients/petronas.png" alt="PETRONAS" class="client-image">
-                </div>
-                <div class="client-logo fade-in stagger-2">
-                    <img src="assets/images/clients/maxis.png" alt="Maxis" class="client-image">
-                </div>
-                <div class="client-logo fade-in stagger-3">
-                    <img src="assets/images/clients/iium.png" alt="IIUM" class="client-image">
-                </div>
-                <div class="client-logo fade-in stagger-4">
-                    <img src="assets/images/clients/cagamas-logo-1536x531.png" alt="Cagamas" class="client-image">
-                </div>
-                <div class="client-logo fade-in stagger-1">
-                    <img src="assets/images/clients/unisel.png" alt="UNISEL" class="client-image">
-                </div>
-                <div class="client-logo fade-in stagger-2">
-                    <img src="assets/images/clients/pnb.png" alt="PNB" class="client-image">
-                </div>
-                <div class="client-logo fade-in stagger-3">
-                    <img src="assets/images/clients/sime-darby.png" alt="Sime Darby" class="client-image">
-                </div>
-                <div class="client-logo fade-in stagger-4">
-                    <img src="assets/images/clients/uthm.png" alt="UTHM" class="client-image">
-                </div>
-                <div class="client-logo fade-in stagger-1">
-                    <img src="assets/images/clients/unisel-business.png" alt="UNISEL Business" class="client-image">
-                </div>
-                <div class="client-logo fade-in stagger-2">
-                    <img src="assets/images/clients/imu.png" alt="IMU" class="client-image">
-                </div>
-                <div class="client-logo fade-in stagger-3">
-                    <img src="assets/images/clients/ucsi.png" alt="UCSI" class="client-image">
-                </div>
-                <div class="client-logo fade-in stagger-4">
-                    <img src="assets/images/clients/tupperware.png" alt="Tupperware" class="client-image">
-                </div>
-                <div class="client-logo fade-in stagger-1">
-                    <img src="assets/images/clients/unirazak.png" alt="UNIRAZAK" class="client-image">
-                </div>
-                <div class="client-logo fade-in stagger-2">
-                    <img src="assets/images/clients/aism.png" alt="AISM" class="client-image">
-                </div>
-                <div class="client-logo fade-in stagger-3">
-                    <img src="assets/images/clients/logo-sel.png" alt="Logo SEL" class="client-image">
                 </div>
             </div>
         </div>
@@ -3196,7 +3463,6 @@
                     <ul style="list-style: none;">
                         <li style="margin-bottom: var(--spacing-sm);"><a href="#solutions" style="color: rgba(255,255,255,0.8);">Solutions</a></li>
                         <li style="margin-bottom: var(--spacing-sm);"><a href="#certifications" style="color: rgba(255,255,255,0.8);">Certifications</a></li>
-                        <li style="margin-bottom: var(--spacing-sm);"><a href="#clients" style="color: rgba(255,255,255,0.8);">Clients</a></li>
                         <li style="margin-bottom: var(--spacing-sm);"><a href="#contact" style="color: rgba(255,255,255,0.8);">Contact</a></li>
                     </ul>
                 </div>
@@ -3207,10 +3473,7 @@
                         Phone: +603 7727 7000
                     </p>
                     <p style="color: rgba(255,255,255,0.8); margin-bottom: var(--spacing-sm);">
-                        WhatsApp: +6011 5405 7715
-                    </p>
-                    <p style="color: rgba(255,255,255,0.8); margin-bottom: var(--spacing-sm);">
-                        Email: acemarketing@aceteamnetworks.com
+                        Email: marketing@aceteamnetworks.com
                     </p>
                     <p style="color: rgba(255,255,255,0.8); font-size: var(--text-small);">
                         Suite 306, Level 3, Block C, Damansara Intan,<br>
@@ -3311,11 +3574,13 @@
                     }
                     
                     function startAutoSlide() {
+                        clearInterval(slideInterval); // Always clear first
                         slideInterval = setInterval(nextSlide, 5000); // Change slide every 5 seconds
                     }
                     
                     function stopAutoSlide() {
                         clearInterval(slideInterval);
+                        slideInterval = null;
                     }
                     
                     // Event listeners
@@ -3323,7 +3588,10 @@
                         nextBtn.addEventListener('click', () => {
                             nextSlide();
                             stopAutoSlide();
-                            setTimeout(startAutoSlide, 10000); // Restart auto-slide after 10 seconds
+                            setTimeout(() => {
+                                stopAutoSlide(); // Ensure clean state
+                                startAutoSlide();
+                            }, 10000); // Restart auto-slide after 10 seconds
                         });
                     }
                     
@@ -3331,7 +3599,10 @@
                         prevBtn.addEventListener('click', () => {
                             prevSlide();
                             stopAutoSlide();
-                            setTimeout(startAutoSlide, 10000); // Restart auto-slide after 10 seconds
+                            setTimeout(() => {
+                                stopAutoSlide(); // Ensure clean state
+                                startAutoSlide();
+                            }, 10000); // Restart auto-slide after 10 seconds
                         });
                     }
                     
@@ -3340,7 +3611,10 @@
                         dot.addEventListener('click', () => {
                             showSlide(index);
                             stopAutoSlide();
-                            setTimeout(startAutoSlide, 10000); // Restart auto-slide after 10 seconds
+                            setTimeout(() => {
+                                stopAutoSlide(); // Ensure clean state
+                                startAutoSlide();
+                            }, 10000); // Restart auto-slide after 10 seconds
                         });
                     });
                     
@@ -3349,6 +3623,42 @@
                     if (heroSection) {
                         heroSection.addEventListener('mouseenter', stopAutoSlide);
                         heroSection.addEventListener('mouseleave', startAutoSlide);
+                    }
+                    
+                    // Touch/Swipe support for mobile hero slider
+                    let startX = 0;
+                    let endX = 0;
+                    
+                    if (heroSection) {
+                        heroSection.addEventListener('touchstart', (e) => {
+                            startX = e.touches[0].clientX;
+                        }, { passive: true });
+                        
+                        heroSection.addEventListener('touchend', (e) => {
+                            endX = e.changedTouches[0].clientX;
+                            const diff = startX - endX;
+                            
+                            // Minimum swipe distance of 50px
+                            if (Math.abs(diff) > 50) {
+                                if (diff > 0) {
+                                    // Swiped left - next slide
+                                    nextSlide();
+                                    stopAutoSlide();
+                                    setTimeout(() => {
+                                        stopAutoSlide(); // Ensure clean state
+                                        startAutoSlide();
+                                    }, 10000);
+                                } else {
+                                    // Swiped right - previous slide
+                                    prevSlide();
+                                    stopAutoSlide();
+                                    setTimeout(() => {
+                                        stopAutoSlide(); // Ensure clean state
+                                        startAutoSlide();
+                                    }, 10000);
+                                }
+                            }
+                        }, { passive: true });
                     }
                     
                     // Start auto-slide
@@ -3451,9 +3761,17 @@
                     indicator.classList.toggle('active', i === index);
                 });
                 
-                // Keep buttons enabled for circular navigation
-                if (certPrevBtn) certPrevBtn.disabled = false;
-                if (certNextBtn) certNextBtn.disabled = false;
+                // Keep buttons always enabled for circular navigation
+                const certPrevBtn = document.getElementById('cert-prev');
+                const certNextBtn = document.getElementById('cert-next');
+                if (certPrevBtn) {
+                    certPrevBtn.disabled = false;
+                    certPrevBtn.style.display = 'flex'; /* Ensure visibility */
+                }
+                if (certNextBtn) {
+                    certNextBtn.disabled = false;
+                    certNextBtn.style.display = 'flex'; /* Ensure visibility */
+                }
             }
             
             // Navigation functions (global scope)
@@ -3496,41 +3814,49 @@
             }
             
             // Auto-slide every 8 seconds
-            startCertAutoSlide();
+            setInterval(() => {
+                moveCertSlide(1);
+            }, 8000);
         }
         
-        // Simple certification slider initialization
-        document.addEventListener('DOMContentLoaded', function() {
-            let currentCertSlide = 0;
-            const totalSlides = 3;
+        // Flip Cards Touch Functionality - DISABLED FOR MOBILE (showing all content)
+        function initFlipCards() {
+            const flipCards = document.querySelectorAll('.solution-flip-card');
+            console.log(`Found ${flipCards.length} flip cards`);
             
-            function updateSlider() {
-                const certTrack = document.getElementById('cert-track');
-                const certIndicators = document.querySelectorAll('.cert-indicator');
-                
-                if (certTrack) {
-                    certTrack.style.transform = `translateX(-${currentCertSlide * 33.333}%)`;
-                }
-                
-                certIndicators.forEach((indicator, index) => {
-                    indicator.classList.toggle('active', index === currentCertSlide);
+            // First ensure all cards are visible (fix fade-in issue)
+            flipCards.forEach(card => {
+                card.classList.add('visible');
+            });
+            
+            // Mobile doesn't need flip functionality anymore since we show all content
+            // Only add flip events for desktop view
+            if (window.innerWidth > 768) {
+                flipCards.forEach((card, index) => {
+                    console.log(`Setting up desktop flip for card ${index + 1}`);
+                    
+                    // Simple hover handler for desktop only
+                    function handleHover(e) {
+                        card.classList.toggle('flipped');
+                    }
+                    
+                    card.addEventListener('mouseenter', handleHover);
+                    card.addEventListener('mouseleave', handleHover);
                 });
             }
+        }
+        
+        // Initialize certification slider when DOM is ready
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM loaded, initializing components...');
             
-            // Global navigation functions
-            window.moveCertSlide = function(direction) {
-                currentCertSlide = (currentCertSlide + direction + totalSlides) % totalSlides;
-                updateSlider();
-            };
+            initCertificationSlider();
             
-            window.goToCertSlide = function(index) {
-                currentCertSlide = index;
-                updateSlider();
-            };
-            
-            // Initialize and start auto-slide
-            updateSlider();
-            setInterval(() => moveCertSlide(1), 8000);
+            // Wait a moment then initialize flip cards
+            setTimeout(() => {
+                console.log('Initializing flip cards...');
+                initFlipCards();
+            }, 200);
         });
         
         // Contact Form JavaScript
